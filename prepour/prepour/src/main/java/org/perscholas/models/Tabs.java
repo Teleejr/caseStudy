@@ -25,6 +25,7 @@ public class Tabs implements Serializable {
     final double taxRate = .07;
     @NotBlank
     double total;
+    //Add a date column
 
     @ToString.Exclude
     @OneToMany (mappedBy = "tabItems", fetch = FetchType.LAZY)
