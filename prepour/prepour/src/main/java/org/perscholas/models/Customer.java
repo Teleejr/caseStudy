@@ -18,8 +18,8 @@ public class Customer implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11) UNSIGNED", name = "customerId", nullable = false)
     Long customerId;
-    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "name", nullable = false)
-    String name;
+    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "username", nullable = false)
+    String username;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "email", nullable = false)
     String email;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "phone", nullable = false)
