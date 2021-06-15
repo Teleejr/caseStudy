@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@300&family=Niramit&display=swap');
+
+/*Fonts and their links:
+Ubuntu Bold 700 (Heading Font?)
+font-family: 'Ubuntu', sans-serif;
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+Open Sans Condensed Light 300
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+font-family: 'Open Sans Condensed', sans-serif;*/
+
+
+/*Styling addressed from top to bottom*/
+
+body {
+  font-family: 'KoHo', sans-serif;
+
+}
+
+navbar-brand {
+  color: whitesmoke;
+}
+
+.banner2 {
+  height: 250px;
+  width: 100%;
+  object-fit: fill, contain;
+}
+
+
+.container {
+  padding-left: end;
+  font-family: 'KoHo', sans-serif;
+}
+
+.container-home {
+  margin-left: end;
+}
+
+.container-fluid {
+  background-color: rgb(55, 55, 110);
+}
+
+.cart-row {
+  display: flex;
+}
+
+.padder {
+  margin-top: 100px;
+}
+
+.cart-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #333;
+}
+
+.cart-column {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-right: 1.5em;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cart-total {
+  text-align:center;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.cart-total-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: black;
+  margin-right: 20px;
+}
+
+.cart-row:last-child {
+  border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+  border: none;
+}
+
+.cart-row {
+  display: flex;
+}
+
+.cart-header {
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #333;
+}
+
+.cart-item {
+  width: 45%;
+}
+
+.cart-type {
+  width: 13%;
+}
+
+.cart-price {
+  width: 20%;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.cart-item-title {
+  color: #333;
+  margin-left: .5em;
+  font-size: 1.2em;
+}
+
+.cart-item-type {
+  color: #333;
+  font-size: 1.2em;
+  margin-top: .6em;
+  width: 200px;
+}
+
+.cart-item-image {
+  width: 75px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.btn-danger {
+  color: white;
+  background-color: #EB5757;
+  border: none;
+  border-radius: .3em;
+  font-weight: bold;
+}
+
+.btn-danger:hover {
+  background-color: #CC4C4C;
+}
+
+.cart-quantity {
+  width: 35%;
+}
+
+.cart-quantity-input {
+  height: 34px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid #56CCF2;
+  background-color: #eee;
+  color: #333;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 25px;
+}
+
+.cart-total-price {
+  color: #333;
+  font-size: 1.1em;
+}
+
+.btn-purchase {
+  font-family: 'KoHo', sans-serif;
+  margin-left: 500px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: #333;
+}
+
+.d-block {
+  max-width: 100%;
+  height: 75%;
+}
+
+/* .locations {
+  text-decoration: underline;
+  font-weight: 100;
+  font-family: 'KoHo', sans-serif;
+
+} */
