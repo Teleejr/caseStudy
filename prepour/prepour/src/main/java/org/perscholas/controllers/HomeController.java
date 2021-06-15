@@ -12,4 +12,19 @@ public class HomeController {
     public String home() {
         return "index";
     }
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
+    @GetMapping("/menu")
+    public String menu() {
+        return "menu";
+    }
 }
