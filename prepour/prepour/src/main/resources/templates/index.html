@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
+  http://www.ultraq.net.nz/thymeleaf/layout http://www.ultraq.net.nz/thymeleaf/layout
+  http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,52 +34,7 @@
 </div>
 
 <!--NAVBAR-->
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg">
-        <div class="container-fluid">
-
-            <!--Link back to home-->
-            <a class="navbar-brand" href="home" style="color: whitesmoke; font-weight: 300;">Pre Pour</a>
-
-            <!--Dropdown button-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!--Links and Dropdown box-->
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <!--Home Link-->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="home" style="color: whitesmoke; font-weight: 300;">Home</a>
-                    </li>
-                    <!--About-->
-                    <li class="nav-item">
-                        <a class="nav-link" href="about" style="color: whitesmoke; font-weight: 300;">About</a>
-                    </li>
-                    <!--If you can get a cocktail api use this for an example custom cocktail
-                    <li class="nav-item">
-                      <a class="nav-link" href="menu">Menu</a>
-                    </li>-->
-                    <!--Dropdown Toggler-->
-                    <li class="nav-item dropdown bg-transparent">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: whitesmoke; font-weight: 300;">Services</a>
-                        <!--Dropdown Links-->
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgb(55, 55, 110);">
-                            <li><a class="dropdown-item" href="register" style="color: whitesmoke; font-weight: 300;">Register</a></li>
-                            <li><a class="dropdown-item" href="menu" style="color: whitesmoke; font-weight: 300;">Menu</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
-
-
-
+<div th:replace = "fragments/fragments"></div>
 
 <!--Carousel of the available locations-->
 <div class="container-home" >
