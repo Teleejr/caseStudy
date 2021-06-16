@@ -32,4 +32,8 @@ public class Customer implements Serializable {
             "At least 1 special character")
     String password;
 
+    @ToString.Exclude @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tab")
+    Tabs customerTab;
+
 }

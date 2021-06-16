@@ -1,7 +1,9 @@
 package org.perscholas.controllers;
 
 import lombok.extern.java.Log;
+import org.perscholas.models.Customer;
 import org.perscholas.models.Tabs;
+import org.perscholas.services.CustomerService;
 import org.perscholas.services.TabService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,7 @@ import javax.validation.Valid;
 public class HomeController {
 
     TabService tabService;
+    CustomerService customerService;
 
     @Autowired
     public HomeController(TabService tabService) {
@@ -41,19 +44,24 @@ public class HomeController {
         return "register";
     }
 
+    @GetMapping("/custregistration")
+    public String customerRegistration() {
+        return "customerRegistration";
+    }
+
     @GetMapping("/menu")
     public String menu() {
         return "menu";
     }
 
-    //Tab page
-    @ModelAttribute("tab")
+    //Customer page
+    @ModelAttribute("customer")
     public Tabs initTabs() {
         return new Tabs();
     }
 
-    @PostMapping("/createtab")
-    public String newTab(@ModelAttribute("tab") @Valid Tabs tab, BindingResult result, Model model) {
+    @PostMapping("/app/register")
+    public String createCustomer(@ModelAttribute("customer") @Valid Customer customer, BindingResult result, Model model) {
 
         System.out.println(result.hasErrors());
         if(result.hasErrors()) {
@@ -63,9 +71,9 @@ public class HomeController {
         }
         else {
             log.warning("NOT in if statement");
-            log.info("Tab: " + tab);
-            Tabs dbTabs = tabService.saveTab(tab);
-            model.addAttribute("tab", tab);
+            log.info("Tab: " + customer);
+            Customer cust = customerService.saveCustomer(customer);
+            model.addAttribute("customer", customer);
             return "menu";
         }
     }

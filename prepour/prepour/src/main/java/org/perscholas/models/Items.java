@@ -18,6 +18,10 @@ public class Items implements Serializable {
     Long itemId;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "name", nullable = false)
     String name;
+    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "type", nullable = false)
+    String type;
+    @NotBlank @Column(columnDefinition = "INT(11) UNSIGNED", name = "abv", nullable = false)
+    double abv;
     @NotBlank @Column(columnDefinition = "INT(11) UNSIGNED", name = "price", nullable = false)
     int price;
 
