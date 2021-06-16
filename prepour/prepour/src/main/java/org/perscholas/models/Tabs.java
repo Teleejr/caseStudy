@@ -5,6 +5,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,15 +18,17 @@ public class Tabs implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11) UNSIGNED", name = "id", nullable = false)
     Long tabId;
-    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "name", nullable = false)
-    String customerName;
-    @NotBlank @Column(columnDefinition = "INT(11) UNSIGNED" , name = "subtotal", nullable = false)
-    int subtotal;
-    @NotBlank
+    @NotNull @Column(columnDefinition = "INT(11) UNSIGNED" , name = "subtotal", nullable = false)
+    double subtotal;
+    @NotNull
     final double taxRate = .07;
-    @NotBlank
+    @NotNull
     double total;
     //Add a date column
+
+    @ToString.Exclude
+    @OneToOne(mappedBy = "customerTab", fetch = FetchType.LAZY)
+    Customer cTab;
 
     @ToString.Exclude
     @OneToMany (mappedBy = "tabItems", fetch = FetchType.LAZY)

@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface ITabsRepo extends JpaRepository<Tabs, Long> {
-    Optional<Tabs> findBycustomerName(String name);
+    Optional<Tabs> findBytabId(Long id);
 }

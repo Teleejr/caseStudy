@@ -44,11 +44,6 @@ public class HomeController {
         return "register";
     }
 
-    @GetMapping("/custregistration")
-    public String customerRegistration() {
-        return "customerRegistration";
-    }
-
     @GetMapping("/menu")
     public String menu() {
         return "menu";
@@ -60,10 +55,15 @@ public class HomeController {
         return new Tabs();
     }
 
-    @PostMapping("/app/register")
+    @GetMapping("/custlogin")
+    public String customerRegistration() {
+        return "customerLogin";
+    }
+
+    @PostMapping("/custlogin")
     public String createCustomer(@ModelAttribute("customer") @Valid Customer customer, BindingResult result, Model model) {
 
-        System.out.println(result.hasErrors());
+        System.out.println(result);
         if(result.hasErrors()) {
             log.warning("In if statement");
             log.warning("Error count: " + String.valueOf(result.getErrorCount()));
