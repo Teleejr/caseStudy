@@ -60,23 +60,8 @@ public class HomeController {
         return "customerLogin";
     }
 
-    @PostMapping("/custlogin")
-    public String createCustomer(@ModelAttribute("customer") @Valid Customer customer, BindingResult result, Model model) {
 
-        System.out.println(result);
-        if(result.hasErrors()) {
-            log.warning("In if statement");
-            log.warning("Error count: " + String.valueOf(result.getErrorCount()));
-            return "index";
-        }
-        else {
-            log.warning("NOT in if statement");
-            log.info("Tab: " + customer);
-            Customer cust = customerService.saveCustomer(customer);
-            model.addAttribute("customer", customer);
-            return "menu";
-        }
-    }
+
     //Register page
     //Connect menu to db
 }

@@ -21,7 +21,7 @@ public class Tabs implements Serializable {
     @NotNull @Column(columnDefinition = "INT(11) UNSIGNED" , name = "subtotal", nullable = false)
     double subtotal;
     @NotNull
-    final double taxRate = .07;
+    final double TAXRATE = 0.07D;
     @NotNull
     double total;
     //Add a date column

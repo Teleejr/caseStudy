@@ -38,22 +38,21 @@
 
 <!-- Page content-->
 <div align="center">
-  <form th:action="@{/app/custlogin}" method="post" >
-    <label for="username">username:</label><br>
-    <input type="text" id="username"  required/><br>
+  <form th:action="@{/app/custlogin/authenticate}" method="get" >
+
 <!--    <div>-->
 <!--      <p class="error" th:each="error : ${#fields.errors('username')}" th:text="${error}"></p>-->
 <!--    </div>-->
 
     <label for="email">email:</label><br>
-    <input type="email" id="email"   /><br>
+    <input type="email" id="email" name="email"   /><br>
 
 <!--    <div>-->
 <!--      <p class="error" th:each="error : ${#fields.errors('email')}" th:text="${error}"></p>-->
 <!--    </div>-->
 
     <label for="password">password:</label><br>
-    <input type="password" id="password"   /><br>
+    <input type="password" id="password" name = "password"   /><br>
 <!--    <div>-->
 <!--      <pre class="error" th:each="error : ${#fields.errors('password')}" th:text="${error}"></pre>-->
 <!--    </div>-->
