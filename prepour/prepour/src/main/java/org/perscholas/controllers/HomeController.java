@@ -51,8 +51,8 @@ public class HomeController {
 
     //Customer page
     @ModelAttribute("customer")
-    public Tabs initTabs() {
-        return new Tabs();
+    public Customer initCustomer() {
+        return new Customer();
     }
 
     @GetMapping("/custlogin")

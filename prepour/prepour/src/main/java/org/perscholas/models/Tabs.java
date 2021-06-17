@@ -18,8 +18,8 @@ public class Tabs implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11) UNSIGNED", name = "id", nullable = false)
     Long tabId;
-    @NotNull @Column(columnDefinition = "INT(11) UNSIGNED" , name = "subtotal", nullable = false)
-    double subtotal;
+    @NotNull @Column(columnDefinition = "DECIMAL (16,2)UNSIGNED" , name = "subtotal", nullable = false)
+    float subtotal;
     @NotNull
     final double TAXRATE = 0.07D;
     @NotNull

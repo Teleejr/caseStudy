@@ -5,6 +5,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -20,12 +21,22 @@ public class Items implements Serializable {
     String name;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "type", nullable = false)
     String type;
-    @NotBlank @Column(columnDefinition = "INT(11) UNSIGNED", name = "abv", nullable = false)
-    double abv;
-    @NotBlank @Column(columnDefinition = "INT(11) UNSIGNED", name = "price", nullable = false)
-    int price;
+    @NotNull @Column(columnDefinition = "DECIMAL (16,2)UNSIGNED", name = "abv", nullable = false)
+    float abv;
+    @NotNull @Column(columnDefinition = "DECIMAL (16,2)UNSIGNED", name = "price", nullable = false)
+    float price;
+    @NotNull @Column(columnDefinition = "INT(11) UNSIGNED", name = "quantity", nullable = false)
+    int quantity;
 
     @ToString.Exclude @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tab")
     Tabs tabItems;
+
+    public Items(String name, String type, float abv, float price, int quantity) {
+        this.name = name;
+        this.type = type;
+        this.abv = abv;
+        this.price = price;
+        this.quantity = quantity;
+    }
 }

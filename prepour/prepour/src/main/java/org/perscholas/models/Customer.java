@@ -37,7 +37,6 @@ public class Customer implements Serializable {
     Tabs customerTab;
 
     public Customer(String username, String email, String phone, String password) {
-        this.customerId = customerId;
         this.username = username;
         this.email = email;
         this.phone = phone;

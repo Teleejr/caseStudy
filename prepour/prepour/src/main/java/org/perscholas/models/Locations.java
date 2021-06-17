@@ -24,4 +24,10 @@ public class Locations implements Serializable {
     String address;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "phone", nullable =false)
     String phone;
+
+    public Locations(String name, String address, String phone) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
 }
