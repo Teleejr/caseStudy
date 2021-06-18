@@ -32,8 +32,6 @@ public class TabController {
     }
 
 
-
-
     //List all items in database
     @GetMapping("/showmenu")
     public String showMenu(@ModelAttribute("items") @Valid Items items, BindingResult result, Model model) {

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Log
@@ -34,15 +35,6 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping("/register")
-    public String register() {
-        return "register";
-    }
-
-//    @GetMapping("/menu")
-//    public String menu() {
-//        return "menu";
-//    }
 
     //Customer page
     @ModelAttribute("customer")
@@ -50,21 +42,15 @@ public class HomeController {
         return new Customer();
     }
 
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
     @GetMapping("/custlogin")
     public String customerRegistration() {
         return "customerLogin";
     }
-
-//    //Tab pages
-//
-//    //List all items in database
-//    @GetMapping("/showmenu")
-//    public String showMenu(@ModelAttribute("items") @Valid Items items, BindingResult result, Model model) {
-//
-//        List<Items> listItems = itemService.findAllItems();
-//        model.addAttribute("tabitem", listItems);
-//        return "menu";
-//    }
 
     //Register page
     //Connect menu to db
