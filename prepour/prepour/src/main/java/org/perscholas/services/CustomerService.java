@@ -19,10 +19,11 @@ public class CustomerService {
         this.customerRepo = customerRepo;
     }
 
-    //Find all customers
-    public List<Customer> findAllCustomers() {
+    //Get all customers
+    public List<Customer> getAllCustomers() {
         return customerRepo.findAll();
     }
+
 
     //Get a customer by id
     public Customer getCustomerById(Long id) {

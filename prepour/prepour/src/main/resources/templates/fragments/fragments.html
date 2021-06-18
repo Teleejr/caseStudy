@@ -1,13 +1,7 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-
-<!--</body>-->
-<!--</html>-->
+<!--BANNER IMAGE-->
+<div class = "banner">
+  <img class = "banner2" src = "/images/bannerFit.jpg">
+</div>
 
 <!--NAVBAR-->
 <div class="container-fluid">
@@ -15,7 +9,7 @@
     <div class="container-fluid">
 
       <!--Link back to home-->
-      <a class="navbar-brand" href="home" style="color: whitesmoke; font-weight: 300;">Pre Pour</a>
+      <a class="navbar-brand" th:href="@{/home}" style="color: whitesmoke; font-weight: 300;">Pre Pour</a>
 
       <!--Dropdown button-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -28,28 +22,40 @@
         <!--Home Link-->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="home" style="color: whitesmoke; font-weight: 300;">Home</a>
+            <a class="nav-link active" aria-current="page" th:href="@{/home}" style="color: whitesmoke; font-weight: 300;">Home</a>
           </li>
           <!--About-->
           <li class="nav-item">
-            <a class="nav-link" href="about" style="color: whitesmoke; font-weight: 300;">About</a>
+            <a class="nav-link" th:href="@{/about}" style="color: whitesmoke; font-weight: 300;">About</a>
           </li>
           <!--If you can get a cocktail api use this for an example custom cocktail
           <li class="nav-item">
             <a class="nav-link" href="menu">Menu</a>
           </li>-->
-          <!--Dropdown Toggler-->
+          <!--Dropdown Toggler for Customers-->
           <li class="nav-item dropdown bg-transparent">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1"
                role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: whitesmoke; font-weight: 300;">Services</a>
             <!--Dropdown Links-->
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgb(55, 55, 110);">
-              <li><a class="dropdown-item" href="register" style="color: whitesmoke; font-weight: 300;">Register</a></li>
-              <li><a class="dropdown-item" href="tab/showmenu" style="color: whitesmoke; font-weight: 300;">Menu</a></li>
+              <li><a class="dropdown-item" th:href="@{/register}" style="color: whitesmoke; font-weight: 300;">Register</a></li>
+              <li><a class="dropdown-item" th:href="@{/tab/showmenu}" style="color: whitesmoke; font-weight: 300;">Menu</a></li>
             </ul>
           </li>
+
+          <!--DROPDOWN TOGGLER FOR EMPLOYEES AND ADMIN-->
+          <li class="nav-item dropdown bg-transparent">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: whitesmoke; font-weight: 300;">Admin Stuff</a>
+            <!--Dropdown Links-->
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgb(55, 55, 110);">
+              <li><a class="dropdown-item" th:href="@{/allcustomers}" style="color: whitesmoke; font-weight: 300;">Customers</a></li>
+              <li><a class="dropdown-item" th:href="@{/tab/showmenu}" style="color: whitesmoke; font-weight: 300;">Tabs</a></li>
+            </ul>
+
+          </li>
           <li class = "nav-item">
-            <a class = "nav-link" href = "custlogin" style="color: whitesmoke; font-weight: 300;">Sign Up</a>
+            <a class = "nav-link" th:href = "@{custlogin}" style="color: whitesmoke; font-weight: 300;">Sign Up</a>
           </li>
         </ul>
       </div>

@@ -31,18 +31,14 @@
 </head>
 <body>
 
-<!--BANNER IMAGE-->
-<div class = "banner">
-  <img class = "banner2" src = "/images/bannerFit.jpg">
-</div>
-
-<!--NAVBAR-->
+<!--BANNER & NAVBAR-->
 <div th:replace = "fragments/fragments"></div>
 
 <div class = "container">
   <!--Table for menu-->
   <table class="table table-striped table-hover">
     <thead>
+    <!--MENU HEADER-->
     <tr class = "shop-header">
       <th>Beer</th>
       <th>Type</th>
@@ -52,52 +48,14 @@
     </tr>
     </thead>
     <tbody>
-<!--    <tr th:each="items : ${tabitem}" class = "shop-item">-->
-<!--      <td th:text = "${items.name}" class="shop-item-title"></td>-->
-<!--      <td th:text = "${items.type}" class = "shop-item-type"></td>-->
-<!--      <td th:text = "${items.abv}" ></td>-->
-<!--      <td th:text = "${items.price}" class="shop-item-price"></td>-->
-<!--      <td><button type="button" class="btn btn-dark menuItemButton">Add</button></td>-->
-<!--    </tr>-->
-    <tr class = "shop-item">
-      <td class="shop-item-title">Apple Pie Milkshake Ale</td>
-      <td class = "shop-item-type">Blonde Ale</td>
-      <td>5.50%</td>
-      <td class="shop-item-price">$5.00</td>
+    <tr th:each="items : ${tabitem}" class = "shop-item">
+      <td th:text = "${items.name}" class="shop-item-title"></td>
+      <td th:text = "${items.type}" class = "shop-item-type"></td>
+      <td th:text = "${items.abv}" ></td>
+      <td th:text = "${items.price}" class="shop-item-price"></td>
       <td><button type="button" class="btn btn-dark menuItemButton">Add</button></td>
     </tr>
 
-    <tr class = "shop-item">
-      <td class="shop-item-title">Coconut Cream Pie Ale</td>
-      <td class = "shop-item-type">Blonde Malt</td>
-      <td>5.90%</td>
-      <td class="shop-item-price">$6.00</td>
-      <td><button type="button" class="btn btn-dark menuItemButton" value="1">Add</button></td>
-    </tr>
-
-    <tr class = "shop-item">
-      <td class="shop-item-title">Rice Barley Wine</td>
-      <td class = "shop-item-type">Sake/Wine</td>
-      <td>13.30%</td>
-      <td class="shop-item-price">$8.00</td>
-      <td><button type="button" class="btn btn-dark menuItemButton">Add</button></td>
-    </tr>
-
-    <tr class = "shop-item">
-      <td class="shop-item-title">Barrel Aged Rye Pale Ale</td>
-      <td class = "shop-item-type">Ale</td>
-      <td>5.90%</td>
-      <td class="shop-item-price">$5.00</td>
-      <td><button type="button" class="btn btn-dark menuItemButton">Add</button></td>
-    </tr>
-
-    <tr class = "shop-item">
-      <td class="shop-item-title">Botanical Sour</td>
-      <td class = "shop-item-type">Sour</td>
-      <td>5.4%</td>
-      <td class="shop-item-price">$6.00</td>
-      <td><button type="button" class="btn btn-dark menuItemButton">Add</button></td>
-    </tr>
 
     </tbody>
   </table>

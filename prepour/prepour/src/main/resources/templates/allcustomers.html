@@ -11,55 +11,52 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="/css/style.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
         crossorigin="anonymous">
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@300&display=swap" rel="stylesheet">
 
   <style>
       body {
         font-family: 'KoHo', sans-serif;
-        }
+      }
     </style>
-  <title>Pre-Pour Home</title>
+
+  <title>Pre-Pour Menu</title>
 </head>
 <body>
 
 <!--BANNER & NAVBAR-->
 <div th:replace = "fragments/fragments"></div>
-
+<br>
+<br>
 <!-- Page content-->
-<div align="center">
-  <form th:action="@{/app/custlogin}" method="post" >
+<h1 class = "container">CUSTOMERS</h1>
 
-<!--    <div>-->
-<!--      <p class="error" th:each="error : ${#fields.errors('username')}" th:text="${error}"></p>-->
-<!--    </div>-->
+<th:block th:each="customer : ${allcustomers}">
+  <div class = "container">
+    <h3> Customer Info </h3>
+    <span th:text = "${customer.customerId}"></span>
+    <span th:text = "${customer.email}"></span>
+    <span th:text = "${customer.username}"></span>
 
-    <label for="email">email:</label><br>
-    <input type="email" id="email" name="email"   /><br>
 
-<!--    <div>-->
-<!--      <p class="error" th:each="error : ${#fields.errors('email')}" th:text="${error}"></p>-->
-<!--    </div>-->
+  </div>
+</th:block>
 
-    <label for="password">password:</label><br>
-    <input type="password" id="password" name = "password"   /><br>
-<!--    <div>-->
-<!--      <pre class="error" th:each="error : ${#fields.errors('password')}" th:text="${error}"></pre>-->
-<!--    </div>-->
+<br>
+<br>
 
-    <input type="submit" value="submit" />
 
-  </form>
-</div>
+
+
 <!-- Bootstrap core JS-->
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
