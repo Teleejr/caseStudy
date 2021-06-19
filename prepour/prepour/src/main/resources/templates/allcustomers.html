@@ -36,18 +36,38 @@
 <br>
 <br>
 <!-- Page content-->
-<h1 class = "container">CUSTOMERS</h1>
+<div class = "container">
 
-<th:block th:each="customer : ${allcustomers}">
-  <div class = "container">
-    <h3> Customer Info </h3>
-    <span th:text = "${customer.customerId}"></span>
-    <span th:text = "${customer.email}"></span>
-    <span th:text = "${customer.username}"></span>
+<!--CUSTOMER TABLE-->
+  <h1 class = "container-customer">CUSTOMERS</h1>
+<table class="table table-dark table-striped table-hover">
+  <!--CUSTOMER HEADER-->
+  <thead>
+    <tr class = "shop-header">
+      <th>Id</th>
+      <th>Username</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <!--CUSTOMER INFO-->
+
+  <tr th:each="customer : ${allcustomers}">
+    <td th:text = "${customer.customerId}"></td>
+    <td th:text = "${customer.username}"></td>
+    <td th:text = "${customer.email}"></td>
+  </tr>
+</table>
+</div>
+<!--<th:block th:each="customer : ${allcustomers}">-->
+<!--  <div class = "container">-->
+<!--    <h3> Customer Info </h3>-->
+<!--    <span th:text = "${customer.customerId}"></span>-->
+<!--    <span th:text = "${customer.username}"></span>-->
+<!--    <span th:text = "${customer.email}"></span>-->
 
 
-  </div>
-</th:block>
+<!--  </div>-->
+<!--</th:block>-->
 
 <br>
 <br>

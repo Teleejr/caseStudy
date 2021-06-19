@@ -69,18 +69,6 @@ public class HomeController {
 
     }
 
-//    //Menu Page
-//    @ModelAttribute("items")
-//    public Items initItems() {
-//        return new Items();
-//    }
-//    @GetMapping("/showmenu")
-//    public String showMenu(@ModelAttribute("items") @Valid Items items, BindingResult result, Model model) {
-//
-//        List<Items> listItems = itemService.findAllItems();
-//        model.addAttribute("tabitem", listItems);
-//        return "menu";
-//    }
     //Register page
     //Connect menu to db
 }
