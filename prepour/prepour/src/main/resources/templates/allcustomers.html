@@ -33,20 +33,22 @@
 
 <!--BANNER & NAVBAR-->
 <div th:replace = "fragments/fragments"></div>
+<!--LAZILY PADDING THE TOP-->
 <br>
 <br>
 <!-- Page content-->
 <div class = "container">
 
 <!--CUSTOMER TABLE-->
-  <h1 class = "container-customer">CUSTOMERS</h1>
-<table class="table table-dark table-striped table-hover">
+  <h1 class = "text-center">CUSTOMERS</h1>
+<table class="table table-dark table-striped table-hover table-sm">
   <!--CUSTOMER HEADER-->
   <thead>
     <tr class = "shop-header">
       <th>Id</th>
       <th>Username</th>
       <th>Email</th>
+      <th>View Customer</th>
     </tr>
   </thead>
   <!--CUSTOMER INFO-->
@@ -55,20 +57,11 @@
     <td th:text = "${customer.customerId}"></td>
     <td th:text = "${customer.username}"></td>
     <td th:text = "${customer.email}"></td>
+    <td><button type="button" class="btn btn-success customerViewButton">View</button></td>
   </tr>
 </table>
 </div>
-<!--<th:block th:each="customer : ${allcustomers}">-->
-<!--  <div class = "container">-->
-<!--    <h3> Customer Info </h3>-->
-<!--    <span th:text = "${customer.customerId}"></span>-->
-<!--    <span th:text = "${customer.username}"></span>-->
-<!--    <span th:text = "${customer.email}"></span>-->
-
-
-<!--  </div>-->
-<!--</th:block>-->
-
+<!--LAZILY PADDING THE BOTTOM-->
 <br>
 <br>
 
