@@ -49,9 +49,9 @@ public class TabController {
     }
 
     //SHOW CUSTOMER TAB
-    @GetMapping("/showtab")
+   /* @GetMapping("/showalltab")
     public String showtab(Model model) {
         model.addAttribute("customerTab", tabService.findAllTabs());
         return "showtab";
-    }
+    }*/
 }

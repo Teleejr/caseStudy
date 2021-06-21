@@ -34,7 +34,9 @@ public class CustomerController {
     }
 
     @ModelAttribute("customer")
-    public Customer initCustomer(){ return new Customer(); }
+    public Customer initCustomer(){
+        return new Customer();
+    }
 
 
     //Create a new Customer
@@ -62,11 +64,16 @@ public class CustomerController {
     }
 
     //Access Customer Tab -- NOT YET IMPLEMENTED
-//    @PostMapping("/customertab")
-//    public String employeeByDept(Model model, @RequestParam("customer") Long id){
-//        Customer c = customerService.getCustomerById(id);
-//        List<Items> i = itemService.findAllItems();
-//        model.addAttribute("customer", i);
-//        return "employees";
-//    }
+    @GetMapping("/customertab")
+    public String showTab() {
+        return "customerTab";
+    }
+
+    @PostMapping("/customertab")
+    public String customerTab(Model model, @RequestParam("customer") Long id){
+        Customer c = customerService.getCustomerById(id);
+        List<Items> i = itemService.findAllItems();
+        model.addAttribute("customer", i);
+        return "customerTab";
+    }
 }

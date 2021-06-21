@@ -53,10 +53,10 @@
     </thead>
     <!--CUSTOMER INFO-->
 
-    <tr th:object = ${tabs}">
-      <td th:text = "${tabId}"></td>
-      <td th:text = "${subtotal}"></td>
-      <td th:text = "${TAXRATE}"></td>
+    <tr th:each = "item : ${customerTab}">
+      <td th:text = "${item.itemId}"></td>
+      <td th:text = "${item.name}"></td>
+      <td th:text = "${item.price}"></td>
       <td><button type="button" class="btn btn-success customerViewButton">View</button></td>
     </tr>
   </table>
