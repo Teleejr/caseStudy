@@ -14,6 +14,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @Log
@@ -54,7 +56,12 @@ public class AppStartupRunner implements CommandLineRunner{
         locationRepo.save(new Locations("Lawrenceville", "1234 Butler St", "7775556"));
 
         log.info("*************** START TAB SQL STATEMENTS ***************");
-        tabsRepo.save(new Tabs());
+        List<Items> itemsList = new ArrayList<>();
+        Items item = new Items("Apple Pie Milkshake Ale", "blonde ale", 5.5f, 5.00f, 56);
+        Items item2 = new Items("Coconut Cream Pie Ale", "blonde malt", 5.9f, 6.00f, 60);
+        itemsList.add(item);
+        itemsList.add(item2);
+        tabsRepo.save(new Tabs(itemsList));
 
 
 

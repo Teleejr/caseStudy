@@ -22,7 +22,8 @@ public class Customer implements Serializable {
     String username;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "email", nullable = false)
     String email;
-    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "phone", nullable = false)
+    //@NotBlank
+    @Column(columnDefinition = "VARCHAR(50)", name = "phone", nullable = true)
     String phone;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "password", nullable = false)
     @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", message = "Must contain at least 8 characters\n" +

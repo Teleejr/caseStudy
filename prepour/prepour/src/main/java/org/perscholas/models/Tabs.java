@@ -34,4 +34,7 @@ public class Tabs implements Serializable {
     @OneToMany (mappedBy = "tabItems", fetch = FetchType.LAZY)
     List<Items> tabItems;
 
+    public Tabs(List<Items> tabItems) {
+        this.tabItems = tabItems;
+    }
 }

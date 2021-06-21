@@ -50,12 +50,13 @@
             <!--Dropdown Links-->
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgb(55, 55, 110);">
               <li><a class="dropdown-item" th:href="@{/allcustomers}" style="color: whitesmoke; font-weight: 300;">Customers</a></li>
-              <li><a class="dropdown-item" th:href="@{/tab/showmenu}" style="color: whitesmoke; font-weight: 300;">Tabs</a></li>
+              <li><a class="dropdown-item" th:href="@{/tab/showtab}" style="color: whitesmoke; font-weight: 300;">Tabs</a></li>
             </ul>
 
           </li>
           <li class = "nav-item">
-            <a class = "nav-link" th:href = "@{custlogin}" style="color: whitesmoke; font-weight: 300;">Sign Up</a>
+            <a class = "nav-link" th:href = "@{/customer/newcustomer}" style="color: whitesmoke; font-weight: 300;">Sign Up</a>
+            <a class = "nav-link" th:href = "@{custlogin}" style="color: whitesmoke; font-weight: 300;">Login</a>
           </li>
         </ul>
       </div>

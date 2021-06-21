@@ -33,7 +33,7 @@ public class HomeController {
         this.customerService = customerService;
     }
 
-
+    //ALL ACCESS MAPPING
     @GetMapping("/home")
     public String home() {
         return "index";
@@ -45,7 +45,7 @@ public class HomeController {
     }
 
 
-    //Customer page
+    //CUSTOMER PAGE
     @ModelAttribute("customer")
     public Customer initCustomer() {
         return new Customer();
@@ -57,7 +57,7 @@ public class HomeController {
     }
 
     @GetMapping("/custlogin")
-    public String customerRegistration() {
+    public String customerLogin() {
         return "customerLogin";
     }
 
