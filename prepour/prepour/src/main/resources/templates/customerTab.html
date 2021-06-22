@@ -36,10 +36,10 @@
 <!--PAGE CONTENT-->
 <div class = "container">
 
-    <!--CUSTOMER TABLE-->
+    <!--TAB TABLE-->
     <h1 class = "text-center">Your Tab</h1>
     <table class="table table-dark table-striped table-hover table-sm">
-        <!--CUSTOMER HEADER-->
+        <!--TAB HEADER-->
         <thead>
         <tr class = "shop-header">
             <th>Item</th>
@@ -47,7 +47,7 @@
 
         </tr>
         </thead>
-        <!--CUSTOMER INFO-->
+        <!--TAB INFO-->
 
         <tr th:each = "item : ${customerTab}">
             <td th:text = "${item.itemId}"></td>
@@ -56,6 +56,29 @@
             <td><button type="button" class="btn btn-success customerViewButton">View</button></td>
         </tr>
     </table>
+</div>
+
+<!--TAB TOTALS-->
+<div class = "container">
+<span class = "cart-header"><h1>Totals</h1></span>
+<div class = "cart-row">
+    <span class = "cart-item cart-header cart-column">ITEM</span>
+    <span class = "cart-type cart-header cart-column" >TYPE</span>
+    <span class = "cart-price cart-header cart-column">PRICE</span>
+    <span class = "cart-quantity cart-header cart-column">QUANTITY</span>
+</div>
+
+<div class = "cart-items">
+
+</div>
+
+
+<div class="cart-total">
+    <strong class="cart-total-title">Total</strong>
+    <span class="cart-total-price">$0</span>
+</div>
+</div>
+<button class="btn btn-success btn-purchase" type="button">Checkout</button>
 </div>
 <!--LAZILY PADDING THE BOTTOM-->
 <br>

@@ -2,10 +2,12 @@ package org.perscholas.services;
 
 import org.perscholas.dao.ICustomerRepo;
 import org.perscholas.models.Customer;
+import org.perscholas.models.Items;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service @Transactional
 public class CustomerService {
@@ -24,6 +26,14 @@ public class CustomerService {
         return customerRepo.findAll();
     }
 
+    //Get customer tab
+//    public List<Items> getCustomerTab(Long id) {
+//        return customerRepo.getcustomerTab(id);
+//    }
+
+    public Optional<Customer> findBysername(String username) {
+        return customerRepo.findByusername(username);
+    }
 
     //Get a customer by id
     public Customer getCustomerById(Long id) {

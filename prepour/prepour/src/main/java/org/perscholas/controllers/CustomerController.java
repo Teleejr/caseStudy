@@ -70,10 +70,14 @@ public class CustomerController {
     }
 
     @PostMapping("/customertab")
-    public String customerTab(Model model, @RequestParam("customer") Long id){
+    public String customerTab(Model model, @RequestParam("customer") Long id) {
         Customer c = customerService.getCustomerById(id);
         List<Items> i = itemService.findAllItems();
         model.addAttribute("customer", i);
         return "customerTab";
     }
+
+
+
+
 }

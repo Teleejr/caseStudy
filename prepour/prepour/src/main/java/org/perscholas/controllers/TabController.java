@@ -2,6 +2,7 @@ package org.perscholas.controllers;
 
 import lombok.extern.java.Log;
 import org.perscholas.models.Items;
+import org.perscholas.models.Tabs;
 import org.perscholas.services.CustomerService;
 import org.perscholas.services.ItemService;
 import org.perscholas.services.LocationService;
@@ -10,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -48,10 +46,4 @@ public class TabController {
         return "menu";
     }
 
-    //SHOW CUSTOMER TAB
-   /* @GetMapping("/showalltab")
-    public String showtab(Model model) {
-        model.addAttribute("customerTab", tabService.findAllTabs());
-        return "showtab";
-    }*/
 }

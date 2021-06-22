@@ -56,6 +56,12 @@ public class AppStartupRunner implements CommandLineRunner{
         locationRepo.save(new Locations("Lawrenceville", "1234 Butler St", "7775556"));
 
         log.info("*************** START TAB SQL STATEMENTS ***************");
+        Customer c1 = new Customer("lee", "lee0@gmail.com", "7314273", "$ycv4ptdGcp@F0C");
+        customerRepo.save(c1);
+        Items item1 = new Items("Apple Pie Milkshake Ale", 5.00f);
+        Items item2 = new Items("Coconut Cream Pie Ale", 6.00f);
+        Items item3 = new Items("Rice Barley Wine", 8.00f);
+        List<Items> tab;
 
 
 

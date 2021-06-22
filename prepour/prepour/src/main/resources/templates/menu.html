@@ -51,8 +51,9 @@
     <tr th:each="items : ${tabitem}" class = "shop-item">
       <td th:text = "${items.name}" class="shop-item-title"></td>
       <td th:text = "${items.type}" class = "shop-item-type"></td>
-      <td th:text = "${items.abv}" ></td>
+      <td th:text = "${items.abv}"></td>
       <td th:text = "${items.price}" class="shop-item-price"></td>
+      <td th:text = "${items.quantity}" class="shop-item-quantity"></td>
       <td><button type="button" class="btn btn-dark menuItemButton">Add</button></td>
     </tr>
 

@@ -65,6 +65,7 @@ function quantityChanged(event) {
   updateCartTotal();
 }
 
+let tab = [];
 //Add item to cart when button is clicked
 function addToCartClicked(event) {
   let button = event.target
@@ -77,7 +78,13 @@ function addToCartClicked(event) {
   //get src of the image (if necessary)
 
   console.log('shopItem = ' + shopItem + 'title' + title + 'price = ' + price)
+   let cart = {title:shopItem.getElementsByClassName('shop-item-title')[0].innerText,
+               price:shopItem.getElementsByClassName('shop-item-price')[0].innerText,
+               type:shopItem.getElementsByClassName('shop-item-type')[0].innerText};
 
+   tab.push(cart);
+
+   console.log(tab);
   //Add the item to the tab and then update tab
   addItemToCart(title, price, type);
   updateCartTotal();

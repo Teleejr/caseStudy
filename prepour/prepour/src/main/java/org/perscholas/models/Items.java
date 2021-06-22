@@ -41,4 +41,9 @@ public class Items implements Serializable {
         this.price = price;
         this.quantity = quantity;
     }
+
+    public Items(String name, float price) {
+        this.name = name;
+        this.price = price;
+    }
 }
