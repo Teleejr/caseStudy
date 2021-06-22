@@ -38,4 +38,11 @@ public class Employees implements Serializable {
             "At least 1 number\n" +
             "At least 1 special character")
     String password;
+
+    public Employees(String username, String email, String phone, String password) {
+        this.username = username;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
 }

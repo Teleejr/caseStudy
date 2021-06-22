@@ -26,12 +26,8 @@ public class CustomerService {
         return customerRepo.findAll();
     }
 
-    //Get customer tab
-//    public List<Items> getCustomerTab(Long id) {
-//        return customerRepo.getcustomerTab(id);
-//    }
-
-    public Optional<Customer> findBysername(String username) {
+    //Get Customer by username
+    public Optional<Customer> findByusername(String username) {
         return customerRepo.findByusername(username);
     }
 

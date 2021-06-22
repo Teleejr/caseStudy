@@ -38,4 +38,11 @@ public class Admin implements Serializable {
             "At least 1 number\n" +
             "At least 1 special character")
     String password;
+
+    public Admin(String username, String email, String phone, String password) {
+        this.username = username;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
 }

@@ -21,7 +21,7 @@ import java.util.List;
 
 public class CustomerController {
 
-    //Add Customer Service
+    //Add Services
     CustomerService customerService;
     TabService tabService;
     ItemService itemService;
@@ -39,23 +39,24 @@ public class CustomerController {
     }
 
 
-    //Create a new Customer
+    //Go to create Customer page
     @GetMapping("/newcustomer")
     public String createCustomer() {
         return "createCustomer";
     }
 
+    //Create new Customer
     @PostMapping("/newcustomer")
     public String newCustomer(@ModelAttribute("customer") @Valid Customer customer, BindingResult result, Model model) {
 
-
+        //If the creation fails, return to the createCustomer page
         if(result.hasErrors()) {
             log.info(String.valueOf(result.hasErrors()));
             log.info(result.getAllErrors().toString());
             return "createCustomer";
         }
 
-        else{
+        else{ //If creation succeeds, go to the index page
             System.out.println("Customer info: " + customer.getCustomerId() + "  " + customer.getEmail());
             Customer newCust = customerService.saveCustomer(customer);
             return "index";
@@ -63,12 +64,13 @@ public class CustomerController {
 
     }
 
-    //Access Customer Tab -- NOT YET IMPLEMENTED
+    //Go to Customer tab page
     @GetMapping("/customertab")
     public String showTab() {
         return "customerTab";
     }
 
+    //Show the customer tab
     @PostMapping("/customertab")
     public String customerTab(Model model, @RequestParam("customer") Long id) {
         Customer c = customerService.getCustomerById(id);

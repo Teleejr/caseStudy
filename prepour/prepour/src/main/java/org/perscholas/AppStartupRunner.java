@@ -1,14 +1,8 @@
 package org.perscholas;
 
 import lombok.extern.java.Log;
-import org.perscholas.dao.ICustomerRepo;
-import org.perscholas.dao.IItemsRepo;
-import org.perscholas.dao.ILocationRepo;
-import org.perscholas.dao.ITabsRepo;
-import org.perscholas.models.Customer;
-import org.perscholas.models.Items;
-import org.perscholas.models.Locations;
-import org.perscholas.models.Tabs;
+import org.perscholas.dao.*;
+import org.perscholas.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -26,13 +20,18 @@ public class AppStartupRunner implements CommandLineRunner{
     IItemsRepo itemsRepo;
     ILocationRepo locationRepo;
     ITabsRepo tabsRepo;
+    IEmployeeRepo employeeRepo;
+    IAdminRepo adminRepo;
 
     @Autowired
-    public AppStartupRunner(ICustomerRepo customerRepo, IItemsRepo itemsRepo, ILocationRepo locationRepo, ITabsRepo tabsRepo) {
+    public AppStartupRunner(ICustomerRepo customerRepo, IItemsRepo itemsRepo, ILocationRepo locationRepo,
+                            ITabsRepo tabsRepo, IEmployeeRepo employeeRepo, IAdminRepo adminRepo) {
         this.customerRepo = customerRepo;
         this.itemsRepo = itemsRepo;
         this.locationRepo = locationRepo;
         this.tabsRepo = tabsRepo;
+        this.employeeRepo = employeeRepo;
+        this.adminRepo = adminRepo;
     }
 
     @Override
@@ -42,6 +41,12 @@ public class AppStartupRunner implements CommandLineRunner{
         customerRepo.save(new Customer("gunit", "gunit@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
         customerRepo.save(new Customer("jahka", "jahka@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
         customerRepo.save(new Customer("slimp", "slimp@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
+
+        log.info("*************** START EMPLOYEES SQL STATEMENTS ***************");
+        employeeRepo.save(new Employees("Leia10", "leia@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
+
+        log.info("*************** START ADMIN SQL STATEMENTS ***************");
+        adminRepo.save(new Admin("Akay", "akay@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
 
         log.info("*************** START ITEMS SQL STATEMENTS ***************");
         itemsRepo.save(new Items("Apple Pie Milkshake Ale", "blonde ale", 5.5f, 5.00f, 56));
