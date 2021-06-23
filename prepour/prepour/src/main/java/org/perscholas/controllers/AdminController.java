@@ -81,7 +81,7 @@ public class AdminController {
 
     //Show 1 admin
     @GetMapping("/adminprofile/{adminId}")
-    public String showAllAdmin(@PathVariable("adminId") Long id, Model model) {
+    public String showOneAdmin(@PathVariable("adminId") Long id, Model model) {
         model.addAttribute("admin", adminService.getByadminId(id));
         return "adminProfile";
     }
