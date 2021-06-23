@@ -44,7 +44,7 @@ public class AdminService {
         adminRepo.deleteById(id);
     }
 
-    //Save a admin
+    //Save/Update a admin
     public Admin saveAdmin(Admin admin) {
         return adminRepo.save(admin);
     }

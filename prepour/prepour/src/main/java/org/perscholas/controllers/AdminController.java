@@ -6,10 +6,7 @@ import org.perscholas.services.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -40,6 +37,7 @@ public class AdminController {
         return new Admin();
     }
 
+    /*CREATE*/
     //Go to create admin page
     @GetMapping("/newadmin")
     public String createCustomer() {
@@ -65,6 +63,7 @@ public class AdminController {
 
     }
 
+    /*READ*/
     //Show all employees
     @GetMapping("/allemployees")
     public String showAllEmployees(Model model, Model model2) {
@@ -78,6 +77,37 @@ public class AdminController {
     public String showAllAdmin(Model model) {
         model.addAttribute("alladmin", adminService.getAllAdmin());
         return "allAdmin";
+    }
+
+    //Show 1 admin
+    @GetMapping("/adminprofile/{adminId}")
+    public String showAllAdmin(Model model, @PathVariable("adminId") Long id) {
+        model.addAttribute("adminprofile", adminService.getByadminId(id));
+        return "adminProfile";
+    }
+
+    /*UPDATE*/
+    @GetMapping("/updateadmin/{adminId}")
+    public String updateAdmin(Model model, @PathVariable("adminId") Long id) {
+
+        Admin admin = adminService.getByadminId(id);
+        model.addAttribute("admin", admin);
+
+        return "updateAdmin";
+    }
+
+    //SHOW UPDATED ADMIN INFO
+    @PostMapping("/updateadmin/{adminId}")
+    public String saveUpdateAdmin(@ModelAttribute("admin") @Valid Admin admin, BindingResult result, Model model, @PathVariable("adminId") Long id) {
+
+        adminService.saveAdmin(admin);
+        return "adminProfile";
+    }
+    /*DELETE*/
+
+    @GetMapping("/test")
+    public String test() {
+        return "adminProfile";
     }
 
 }

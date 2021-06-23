@@ -18,6 +18,10 @@ public class Customer implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11) UNSIGNED", name = "customerId", nullable = false)
     Long customerId;
+    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "first", nullable = false)
+    String firstName;
+    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "last", nullable = false)
+    String lastName;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "username", nullable = false)
     String username;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "email", nullable = false)
@@ -36,7 +40,9 @@ public class Customer implements Serializable {
     @JoinColumn(name = "")
     Tabs customerTab;
 
-    public Customer(String username, String email, String phone, String password) {
+    public Customer(String firstName, String lastName,String username, String email, String phone, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.phone = phone;

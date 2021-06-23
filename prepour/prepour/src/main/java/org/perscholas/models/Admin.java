@@ -24,8 +24,11 @@ public class Admin implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11) UNSIGNED", name = "customerId", nullable = false)
     Long adminId;
-    @NotBlank
-    @Column(columnDefinition = "VARCHAR(50)", name = "username", nullable = false)
+    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "first", nullable = false)
+    String firstName;
+    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "last", nullable = false)
+    String lastName;
+    @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "username", nullable = false)
     String username;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "email", nullable = false)
     String email;
@@ -39,7 +42,9 @@ public class Admin implements Serializable {
             "At least 1 special character")
     String password;
 
-    public Admin(String username, String email, String phone, String password) {
+    public Admin(String firstName, String lastName,String username, String email, String phone, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.phone = phone;
