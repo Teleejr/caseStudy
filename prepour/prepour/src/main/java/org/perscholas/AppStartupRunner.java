@@ -3,9 +3,11 @@ package org.perscholas;
 import lombok.extern.java.Log;
 import org.perscholas.dao.*;
 import org.perscholas.models.*;
+import org.perscholas.security.AppSecurityConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -22,20 +24,24 @@ public class AppStartupRunner implements CommandLineRunner{
     ITabsRepo tabsRepo;
     IEmployeeRepo employeeRepo;
     IAdminRepo adminRepo;
+    IAuthRepo authRepo;
 
     @Autowired
     public AppStartupRunner(ICustomerRepo customerRepo, IItemsRepo itemsRepo, ILocationRepo locationRepo,
-                            ITabsRepo tabsRepo, IEmployeeRepo employeeRepo, IAdminRepo adminRepo) {
+                            ITabsRepo tabsRepo, IEmployeeRepo employeeRepo, IAdminRepo adminRepo, IAuthRepo authRepo) {
         this.customerRepo = customerRepo;
         this.itemsRepo = itemsRepo;
         this.locationRepo = locationRepo;
         this.tabsRepo = tabsRepo;
         this.employeeRepo = employeeRepo;
         this.adminRepo = adminRepo;
+        this.authRepo = authRepo;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+
         log.info("*************** START CUSTOMER SQL STATEMENTS ***************");
         customerRepo.save(new Customer("T", "L", "tel10", "tel10@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
         customerRepo.save(new Customer("G", "Unit", "gunit", "gunit@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
@@ -46,8 +52,10 @@ public class AppStartupRunner implements CommandLineRunner{
         employeeRepo.save(new Employees("Leaia", "Leia","Leia10", "leia@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
 
         log.info("*************** START ADMIN SQL STATEMENTS ***************");
-        adminRepo.save(new Admin("Adam", "Ad", "Admin", "admin@gmail.com", "11111111", "$Administrat0r"));
+        adminRepo.save(new Admin("Adam", "Ad", "Admin", "admin@gmail.com", "11111111", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
         adminRepo.save(new Admin("Aaron", "Karl", "Akay", "akay@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
+        authRepo.save(new AuthGroup("Admin", "ROLE_ADMIN"));
+
 
         log.info("*************** START ITEMS SQL STATEMENTS ***************");
         itemsRepo.save(new Items("Apple Pie Milkshake Ale", "blonde ale", 5.5f, 5.00f, 56));

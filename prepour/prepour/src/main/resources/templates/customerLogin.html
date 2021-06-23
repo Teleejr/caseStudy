@@ -33,10 +33,10 @@
 
 <!-- Page content-->
 <div align="center">
-  <form th:action="@{/custlogin}" method="post" >
+  <form th:action="@{/custlogin/authenticate}" method="post" >
 
-    <label for="email">email:</label><br>
-    <input type="email" id="email" name="email"   /><br>
+    <label for="username">username:</label><br>
+    <input type="text" id="username" name="username"   /><br>
 
     <label for="password">password:</label><br>
     <input type="password" id="password" name = "password"   /><br>

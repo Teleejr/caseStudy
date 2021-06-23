@@ -44,6 +44,11 @@ public class HomeController {
         return "about";
     }
 
+    @GetMapping("/403")
+    public String forbidden() {
+        return "403";
+    }
+
 
     //CUSTOMER PAGE
     @ModelAttribute("customer")

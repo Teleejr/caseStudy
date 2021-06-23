@@ -1,8 +1,10 @@
 package org.perscholas.security;
 
+import lombok.extern.slf4j.Slf4j;
 import org.perscholas.dao.IAdminRepo;
-import org.perscholas.dao.IAuthGroupRepo;
+import org.perscholas.dao.IAuthRepo;
 import org.perscholas.models.Admin;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,16 +13,17 @@ import java.util.Optional;
 import org.perscholas.models.AuthGroup;
 import java.util.List;
 
-
+@Slf4j
 @Service
 public class AppUserDetailsService implements UserDetailsService {
 
     //Fields
     private final IAdminRepo adminRepo;
-    private final IAuthGroupRepo authGroup;
+    private final IAuthRepo authGroup;
 
     //Constructor
-    public AppUserDetailsService(IAdminRepo adminRepo, IAuthGroupRepo authGroup) {
+    @Autowired
+    public AppUserDetailsService(IAdminRepo adminRepo, IAuthRepo authGroup) {
         this.adminRepo = adminRepo;
         this.authGroup = authGroup;
     }
@@ -37,6 +40,7 @@ public class AppUserDetailsService implements UserDetailsService {
         }
 
         List<AuthGroup> authGroups = authGroup.findByaUsername(s);
+        log.warn("authority group service " + authGroups);
         return new AppUserPrincipal(adminOptional.get(), authGroups);
     }
 
