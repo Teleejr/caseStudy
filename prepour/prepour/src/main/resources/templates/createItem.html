@@ -4,14 +4,14 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
-  http://www.ultraq.net.nz/thymeleaf/layout http://www.ultraq.net.nz/thymeleaf/layout
-  http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      xsi:schemaLocation=
+              "http://www.thymeleaf.org http://www.thymeleaf.org
+      http://www.ultraq.net.nz/thymeleaf/layout http://www.ultraq.net.nz/thymeleaf/layout
+      http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link href="/css/style.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -26,38 +26,32 @@
         font-family: 'KoHo', sans-serif;
       }
     </style>
-
-  <title>Update Employee</title>
+  <title>Create Item</title>
 </head>
 <body>
 
 <!--BANNER & NAVBAR-->
 <div th:replace = "fragments/fragments"></div>
 
-<!--PADDING THE TOP BECAUSE BOOTSTRAP-->
-<br><br>
 
-<!--SHOW ONE ADMIN-->
-<div class = "container">
-<table class="table table-dark table-striped table-hover table-sm">
+<!--LOGIN FORM-->
+<div align="center">
+  <form th:action="@{/items/newitems}" method="post" th:object="${items}">
+    <label for="name">name:</label><br>
+    <input type="text" id="name"  th:field="*{name}" required/><br>
 
-  <thead>
-  <tr class = "shop-header">
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Username</th>
-    <th>Email</th>
-  </tr>
-  </thead>
+    <label for="type">type:</label><br>
+    <input type="text" id="type"   th:field="*{type}" /><br>
 
-  <tr>
-    <td th:text = "${admin.firstName}"></td>
-    <td th:text = "${admin.lastName}"></td>
-    <td th:text = "${admin.username}"></td>
-    <td th:text = "${admin.email}"></td>
-  </tr>
+    <label for="abv">abv:</label><br>
+    <input type="text" id="abv"   th:field="*{abv}" /><br>
 
-</table>
+    <label for="price">price:</label><br>
+    <input type="text" id="price"  th:field="*{price}" /><br>
+
+    <input type="submit" value="submit" />
+
+  </form>
 </div>
 </body>
 </html>

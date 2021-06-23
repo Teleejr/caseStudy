@@ -7,10 +7,7 @@ import org.perscholas.services.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -20,16 +17,14 @@ import javax.validation.Valid;
 public class EmployeeController {
 
     //Add necessary services
-    AdminService adminService;
     EmployeeService employeeService;
     CustomerService customerService;
     ItemService itemService;
     TabService tabService;
 
     //Add constructor
-    public EmployeeController(AdminService adminService, EmployeeService employeeService, CustomerService customerService,
+    public EmployeeController(EmployeeService employeeService, CustomerService customerService,
                               ItemService itemService, TabService tabService) {
-        this.adminService = adminService;
         this.employeeService = employeeService;
         this.customerService = customerService;
         this.itemService = itemService;
@@ -71,7 +66,34 @@ public class EmployeeController {
     public String showAllCustomers(Model model) {
         model.addAttribute("allcustomers", customerService.getAllCustomers());
         return "allCustomers";
-
     }
 
+    //Show 1 Employee
+    @GetMapping("/employeeprofile/{employeeId}")
+    public String showOneAdmin(@PathVariable("employeeId") Long id, Model model) {
+        model.addAttribute("employee", employeeService.getByemployeeId(id));
+        return "employeeProfile";
+    }
+
+    /*UPDATE*/
+    //Update Employee
+    @GetMapping("/updateemployee/{employeeId}")
+    public String updateEmployee(Model model, @PathVariable("employeeId") Long id) {
+
+        Employees employee = employeeService.getByemployeeId(id);
+        model.addAttribute("employee", employee);
+        return "updateEmployee";
+    }
+
+    //Show updated Employee info
+    @PostMapping("/updateemployee/{employeeId}")
+    public String saveUpdatedEmployee(@ModelAttribute("employee") @Valid Employees employee,
+                                      BindingResult result, Model model, @PathVariable("employeeId") Long id) {
+
+        employeeService.saveEmployee(employee);
+        return "employeeProfile";
+    }
+
+
 }
+

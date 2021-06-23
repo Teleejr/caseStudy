@@ -27,7 +27,7 @@
       }
     </style>
 
-  <title>Update Employee</title>
+  <title>Update Admin</title>
 </head>
 <body>
 
@@ -39,25 +39,25 @@
 
 <!--SHOW ONE ADMIN-->
 <div class = "container">
-<table class="table table-dark table-striped table-hover table-sm">
+  <table class="table table-dark table-striped table-hover table-sm">
 
-  <thead>
-  <tr class = "shop-header">
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Username</th>
-    <th>Email</th>
-  </tr>
-  </thead>
+    <thead>
+    <tr class = "shop-header">
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+      <th>Email</th>
+    </tr>
+    </thead>
 
-  <tr>
-    <td th:text = "${admin.firstName}"></td>
-    <td th:text = "${admin.lastName}"></td>
-    <td th:text = "${admin.username}"></td>
-    <td th:text = "${admin.email}"></td>
-  </tr>
+    <tr>
+      <td th:text = "${employee.firstName}"></td>
+      <td th:text = "${employee.lastName}"></td>
+      <td th:text = "${employee.username}"></td>
+      <td th:text = "${employee.email}"></td>
+    </tr>
 
-</table>
+  </table>
 </div>
 </body>
 </html>

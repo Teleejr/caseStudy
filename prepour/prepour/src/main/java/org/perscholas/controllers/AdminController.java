@@ -40,7 +40,7 @@ public class AdminController {
     /*CREATE*/
     //Go to create admin page
     @GetMapping("/newadmin")
-    public String createCustomer() {
+    public String createAdmin() {
         return "createAdmin";
     }
 
@@ -104,12 +104,22 @@ public class AdminController {
         return "adminProfile";
     }
     /*DELETE*/
+    //Delete Admin
     @GetMapping("/deleteadmin/{adminId}")
     public String showDeleteAdmin(Model model, @PathVariable("adminId") Long id) {
 
         adminService.deleteAdminById(id);
         model.addAttribute("alladmin", adminService.getAllAdmin());
         return "allAdmin";
+    }
+
+    //Delete Employees
+    @GetMapping("/deleteemployee/{employeeId}")
+    public String showDeleteEmployees(Model model, @PathVariable("employeeId") Long id) {
+
+        employeeService.deleteEmployeeById(id);
+        model.addAttribute("employee", employeeService.getAllEmployees());
+        return "allEmployees";
     }
 
 }

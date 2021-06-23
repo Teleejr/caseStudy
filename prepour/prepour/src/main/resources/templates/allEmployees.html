@@ -48,7 +48,9 @@
       <th>Id</th>
       <th>Username</th>
       <th>Email</th>
-      <th>View Employee</th>
+      <th>View</th>
+      <th>Update</th>
+      <th>Delete</th>
     </tr>
     </thead>
 
@@ -58,7 +60,9 @@
       <td th:text = "${employee.employeeId}"></td>
       <td th:text = "${employee.username}"></td>
       <td th:text = "${employee.email}"></td>
-      <td><button type="button" class="btn btn-success customerViewButton">View</button></td>
+      <td><a th:href = "@{'/employee/employeeprofile/' + ${employee.employeeId}}"><button type="submit" class="btn btn-success customerViewButton">View</button></a></td>
+      <td><a th:href = "@{'/employee/updateemployee/' + ${employee.employeeId}}"><button type="submit" class="btn btn-primary customerViewButton">Edit</button></a></td>
+      <td><a th:href = "@{'/admin/deleteemployee/' + ${employee.employeeId}}"><button type="submit" class="btn btn-danger customerViewButton">Delete</button></a></td>
     </tr>
   </table>
 </div>
