@@ -40,24 +40,26 @@
 <div class = "container">
 
   <!--CUSTOMER TABLE-->
-  <h1 class = "text-center">ADMIN</h1>
+  <h1 class = "text-center">ITEMS</h1>
   <table class="table table-dark table-striped table-hover table-sm">
     <!--EMPLOYEE HEADER-->
     <thead>
     <tr class = "shop-header">
       <th>Id</th>
-      <th>Username</th>
-      <th>Email</th>
-      <th>View Employee</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Abv</th>
+      <th>Price</th>
+      <th>Quantity</th>
       <th></th>
       <th></th>
     </tr>
     </thead>
 
 
-    <!--ADMIN INFO-->
+    <!--ITEM INFO-->
 
-    <tr th:each="item : ${allitem}">
+    <tr th:each="item : ${allitems}">
       <td th:text = "${item.itemId}"></td>
       <td th:text = "${item.name}"></td>
       <td th:text = "${item.type}"></td>

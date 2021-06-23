@@ -7,10 +7,7 @@ import org.perscholas.services.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -43,7 +40,7 @@ public class ItemController {
 
     /*CREATE*/
     //Go to createItem page
-    @GetMapping("/newadmin")
+    @GetMapping("/newitem")
     public String createItem() {
         return "createItem";
     }
@@ -62,7 +59,7 @@ public class ItemController {
         else{ //If creation succeeds, go to the index page
             log.info("Item info: " + item.getName() + "  " + item.getType() + " " + item.getAbv() + " " + item.getPrice());
             Items newItem = itemService.saveItem(item);
-            return "index";
+            return "allItems";
         }
 
     }
@@ -74,8 +71,35 @@ public class ItemController {
         model.addAttribute("allitems", itemService.findAllItems());
         return "allItems";
     }
+
     /*UPDATE*/
+    //Update Items page
+    @GetMapping("/updateitem/{itemId}")
+    public String updateItems(Model model, @PathVariable("itemId") Long id) {
+
+        Items item = itemService.getItemById(id);
+        model.addAttribute("item", item);
+        return "updateItems";
+    }
+
+    //Show updated item info
+    @PostMapping("/updateitem/{itemId}")
+    public String saveUpdateItem(@ModelAttribute("item") @Valid Items item, BindingResult result, Model model, @PathVariable("itemId") Long id) {
+
+        itemService.saveItem(item);
+        return "allItems";
+    }
+
     /*DELETE*/
+    //Delete Item
+    @GetMapping("/deleteitem/{itemId}")
+    public String showDeleteAdmin(Model model, @PathVariable("itemId") Long id) {
+
+        itemService.deleteById(id);
+        model.addAttribute("allitems", itemService.findAllItems());
+        return "allItems";
+    }
+
 
 
 }

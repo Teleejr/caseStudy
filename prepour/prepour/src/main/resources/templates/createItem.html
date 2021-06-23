@@ -36,7 +36,7 @@
 
 <!--LOGIN FORM-->
 <div align="center">
-  <form th:action="@{/items/newitems}" method="post" th:object="${items}">
+  <form th:action="@{/item/newitem}" method="post" th:object="${item}">
     <label for="name">name:</label><br>
     <input type="text" id="name"  th:field="*{name}" required/><br>
 
