@@ -49,6 +49,8 @@
       <th>Username</th>
       <th>Email</th>
       <th>View Employee</th>
+      <th></th>
+      <th></th>
     </tr>
     </thead>
 
@@ -59,7 +61,9 @@
       <td th:text = "${admin.adminId}"></td>
       <td th:text = "${admin.username}"></td>
       <td th:text = "${admin.email}"></td>
-      <td><button type="submit" form action = "@{/admin/updateadmin/1}" class="btn btn-success customerViewButton">View</button></td>
+      <td><a th:href = "@{'/admin/adminprofile/' + ${admin.adminId}}"><button type="submit" class="btn btn-success customerViewButton">View</button></a></td>
+      <td><a th:href = "@{'/admin/updateadmin/' + ${admin.adminId}}"><button type="submit" class="btn btn-primary customerViewButton">Edit</button></a></td>
+      <td><a th:href = "@{'/admin/deleteadmin/' + ${admin.adminId}}"><button type="submit" class="btn btn-danger customerViewButton">Delete</button></a></td>
     </tr>
   </table>
 </div>

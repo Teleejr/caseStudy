@@ -81,8 +81,8 @@ public class AdminController {
 
     //Show 1 admin
     @GetMapping("/adminprofile/{adminId}")
-    public String showAllAdmin(Model model, @PathVariable("adminId") Long id) {
-        model.addAttribute("adminprofile", adminService.getByadminId(id));
+    public String showAllAdmin(@PathVariable("adminId") Long id, Model model) {
+        model.addAttribute("admin", adminService.getByadminId(id));
         return "adminProfile";
     }
 
@@ -104,10 +104,12 @@ public class AdminController {
         return "adminProfile";
     }
     /*DELETE*/
+    @GetMapping("/deleteadmin/{adminId}")
+    public String showDeleteAdmin(Model model, @PathVariable("adminId") Long id) {
 
-    @GetMapping("/test")
-    public String test() {
-        return "adminProfile";
+        adminService.deleteAdminById(id);
+        model.addAttribute("alladmin", adminService.getAllAdmin());
+        return "allAdmin";
     }
 
 }

@@ -24,16 +24,22 @@ public class Admin implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11) UNSIGNED", name = "customerId", nullable = false)
     Long adminId;
+
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "first", nullable = false)
     String firstName;
+
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "last", nullable = false)
     String lastName;
+
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "username", nullable = false)
     String username;
+
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "email", nullable = false)
     String email;
+
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "phone", nullable = false)
     String phone;
+
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "password", nullable = false)
     @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", message = "Must contain at least 8 characters\n" +
             "At least 1 upper case letter\n" +
