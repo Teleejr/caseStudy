@@ -68,23 +68,50 @@ function quantityChanged(event) {
 let tab = [];
 //Add item to cart when button is clicked
 function addToCartClicked(event) {
-  let button = event.target
+    let button = event.target
 
-  //Get item name, price, quantity, and image (if necessary)
-  let shopItem = button.parentElement.parentElement;
-  let title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
-  let price = shopItem.getElementsByClassName('shop-item-price')[0].innerText;
-  let type = shopItem.getElementsByClassName('shop-item-type')[0].innerText;
-  //get src of the image (if necessary)
+    //Get item name, price, quantity, and image (if necessary)
+    let shopItem = button.parentElement.parentElement;
+    let title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
+    let price = shopItem.getElementsByClassName('shop-item-price')[0].innerText;
+    let type = shopItem.getElementsByClassName('shop-item-type')[0].innerText;
+    //get src of the image (if necessary)
 
-  console.log('shopItem = ' + shopItem + 'title' + title + 'price = ' + price)
-   let cart = {title:shopItem.getElementsByClassName('shop-item-title')[0].innerText,
+    console.log('shopItem = ' + shopItem + 'title' + title + 'price = ' + price)
+    let cart = {title:shopItem.getElementsByClassName('shop-item-title')[0].innerText,
                price:shopItem.getElementsByClassName('shop-item-price')[0].innerText,
                type:shopItem.getElementsByClassName('shop-item-type')[0].innerText};
 
-   tab.push(cart);
+    //This will handle adding items to the database
+/*
+    let item = {"name": shopItem.getElementsByClassName('shop-item-title')[0].innerText,
+               "price": shopItem.getElementsByClassName('shop-item-price')[0].innerText};
 
-   console.log(tab);
+//    $.ajax({url:"/customer/customertab", type: 'POST', data: item, dataType: "html", contentType: 'application/json',
+//               mimeType: 'application/json',
+//               success: function(data){
+//                   console.log(data);
+//                   return false;
+//               }
+//           });
+
+    let items= [];
+    let item1 = {};
+    let item2 = {};
+
+    items.push(item);
+
+    items = JSON.stringify({'items' : items});
+
+    $.ajax({url:"/customer/customertab", type: 'POST', data: items, dataType: "html", contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function(data){
+            console.log(data);
+            return false;
+        }
+    });*/
+   //End code block sending items to the database
+
   //Add the item to the tab and then update tab
   addItemToCart(title, price, type);
   updateCartTotal();

@@ -33,7 +33,7 @@ public class Customer implements Serializable {
     String password;
 
     @ToString.Exclude @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tab")
+    @JoinColumn(name = "")
     Tabs customerTab;
 
     public Customer(String username, String email, String phone, String password) {

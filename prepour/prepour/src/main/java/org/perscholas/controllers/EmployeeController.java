@@ -67,11 +67,11 @@ public class EmployeeController {
     }
 
     //Show all customers
-    /*@GetMapping("/allcustomers")
+    @GetMapping("/allcustomers")
     public String showAllCustomers(Model model) {
         model.addAttribute("allcustomers", customerService.getAllCustomers());
-        return "allcustomers";
+        return "allCustomers";
 
-    }*/
+    }
 
 }

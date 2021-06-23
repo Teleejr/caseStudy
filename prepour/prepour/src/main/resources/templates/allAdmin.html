@@ -40,7 +40,7 @@
 <div class = "container">
 
   <!--CUSTOMER TABLE-->
-  <h1 class = "text-center">CUSTOMERS</h1>
+  <h1 class = "text-center">ADMIN</h1>
   <table class="table table-dark table-striped table-hover table-sm">
     <!--EMPLOYEE HEADER-->
     <thead>
@@ -51,22 +51,22 @@
       <th>View Employee</th>
     </tr>
     </thead>
-    <!--EMPLOYEE INFO-->
 
-    <tr th:each="employee : ${allemployees}">
-      <td th:text = "${employee.employeeId}"></td>
-      <td th:text = "${employee.username}"></td>
-      <td th:text = "${employee.email}"></td>
+
+    <!--ADMIN INFO-->
+
+    <tr th:each="admin : ${alladmin}">
+      <td th:text = "${admin.adminId}"></td>
+      <td th:text = "${admin.username}"></td>
+      <td th:text = "${admin.email}"></td>
       <td><button type="button" class="btn btn-success customerViewButton">View</button></td>
     </tr>
   </table>
 </div>
+
 <!--LAZILY PADDING THE BOTTOM-->
 <br>
 <br>
-
-
-
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>

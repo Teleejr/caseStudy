@@ -61,14 +61,6 @@ public class HomeController {
         return "customerLogin";
     }
 
-    //Customer Page/Employee/Admin
-    @GetMapping("/allcustomers")
-    public String showAllCustomers(Model model) {
-        model.addAttribute("allcustomers", customerService.getAllCustomers());
-        return "allcustomers";
-
-    }
-
     //Register page
     //Connect menu to db
 }

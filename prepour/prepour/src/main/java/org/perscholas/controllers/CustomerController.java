@@ -65,21 +65,46 @@ public class CustomerController {
     }
 
     //Go to Customer tab page
-    @GetMapping("/customertab")
-    public String showTab() {
+    @GetMapping("/customertab/1")
+    public String showTab(Model model1) {
+
+        Items tab = new Items();
+        model1.addAttribute("items", tab);
         return "customerTab";
     }
 
     //Show the customer tab
-    @PostMapping("/customertab")
-    public String customerTab(Model model, @RequestParam("customer") Long id) {
+    @PostMapping("/customertab/{customerId}")
+    public String customerTab(@ModelAttribute("items") @Valid Items item, BindingResult result,
+                              Model model, @PathVariable("customerId") Long id) {
+
         Customer c = customerService.getCustomerById(id);
         List<Items> i = itemService.findAllItems();
-        model.addAttribute("customer", i);
+        model.addAttribute("customerTab", i);
+        itemService.saveItem(item);
+
         return "customerTab";
     }
 
+ /*   //Code for sending javascript object to database
+    @RequestMapping(value = "/showmenu", method = RequestMethod.POST)
 
+    public @ResponseBody String addItem(@RequestBody Items items)throws ParseException, IOException {
+        log.info("Adding new item");
+
+        // perform add operation
+        try {
+            log.info("Successfully added item");
+            return "customerTab";
+        }
+        //item wasn't added
+        catch (Exception ex) {
+            ex.printStackTrace();
+            log.info("Add item failed");
+            return "index";
+
+        }
+    }//end addItem*/
 
 
 }

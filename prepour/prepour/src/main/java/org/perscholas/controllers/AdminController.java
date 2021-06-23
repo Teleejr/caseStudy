@@ -67,10 +67,17 @@ public class AdminController {
 
     //Show all employees
     @GetMapping("/allemployees")
-    public String showAllEmployees(Model model) {
+    public String showAllEmployees(Model model, Model model2) {
+        model2.addAttribute("alladmin", adminService.getAllAdmin());
         model.addAttribute("allemployees", employeeService.getAllEmployees());
-        return "allemployees";
+        return "allEmployees";
+    }
 
+    //Show all admin
+    @GetMapping("/alladmin")
+    public String showAllAdmin(Model model) {
+        model.addAttribute("alladmin", adminService.getAllAdmin());
+        return "allAdmin";
     }
 
 }

@@ -46,6 +46,7 @@ public class AppStartupRunner implements CommandLineRunner{
         employeeRepo.save(new Employees("Leia10", "leia@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
 
         log.info("*************** START ADMIN SQL STATEMENTS ***************");
+        adminRepo.save(new Admin("Admin", "admin@gmail.com", "11111111", "$Administrat0r"));
         adminRepo.save(new Admin("Akay", "akay@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
 
         log.info("*************** START ITEMS SQL STATEMENTS ***************");
