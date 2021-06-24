@@ -3,6 +3,7 @@ package org.perscholas.controllers;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.models.Customer;
+import org.perscholas.models.Employees;
 import org.perscholas.models.Items;
 import org.perscholas.services.CustomerService;
 import org.perscholas.services.ItemService;
@@ -64,6 +65,33 @@ public class CustomerController {
 
     }
 
+    /*READ*/
+    //Show 1 customer
+    @GetMapping("/customerprofile/{customerId}")
+    public String showOneCustomer(@PathVariable("customerId") Long id, Model model) {
+        model.addAttribute("customer", customerService.getCustomerById(id));
+        return "customerProfile";
+    }
+
+    /*UPDATE*/
+    //Update Customer
+    @GetMapping("/updatecustomer/{customerId}")
+    public String updateCustomer(Model model, @PathVariable("customerId") Long id) {
+
+        Customer customer = customerService.getCustomerById(id);
+        model.addAttribute("customer", customer);
+        return "updateCustomer";
+    }
+
+    //Show updated Customer info
+    @PostMapping("/updatecustomer/{customerId}")
+    public String saveUpdatedEmployee(@ModelAttribute("customer") @Valid Customer customer,
+                                      BindingResult result, Model model, @PathVariable("customerId") Long id) {
+
+        customerService.saveCustomer(customer);
+        return "customerProfile";
+    }
+
     //Go to Customer tab page
     @GetMapping("/customertab/1")
     public String showTab(Model model1) {
@@ -86,6 +114,15 @@ public class CustomerController {
         return "customerTab";
     }
 
+    /*DELETE*/
+    /*@GetMapping("/deletecustomer/{customerId}")
+    public String showDeleteCustomer(Model model, @PathVariable("customerId") Long id) {
+
+        customerService.deleteCustomerById(id);
+        model.addAttribute("customer", customerService.getAllCustomers());
+        return "allCustomers";
+    }
+*/
  /*   //Code for sending javascript object to database
     @RequestMapping(value = "/showmenu", method = RequestMethod.POST)
 

@@ -27,55 +27,37 @@
       }
     </style>
 
-  <title>Pre-Pour Menu</title>
+  <title>Update Customer</title>
 </head>
 <body>
 
 <!--BANNER & NAVBAR-->
 <div th:replace = "fragments/fragments"></div>
-<!--LAZILY PADDING THE TOP-->
-<br>
-<br>
-<!-- Page content-->
-<div class = "container">
 
-<!--CUSTOMER TABLE-->
-  <h1 class = "text-center">CUSTOMERS</h1>
-<table class="table table-dark table-striped table-hover table-sm">
-  <!--CUSTOMER HEADER-->
-  <thead>
+<!--PADDING THE TOP BECAUSE BOOTSTRAP-->
+<br><br>
+
+<!--SHOW ONE ADMIN-->
+<div class = "container">
+  <table class="table table-dark table-striped table-hover table-sm">
+
+    <thead>
     <tr class = "shop-header">
-      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Username</th>
       <th>Email</th>
-      <th>View Customer</th>
-      <th></th>
-      <th></th>
     </tr>
-  </thead>
+    </thead>
 
+    <tr>
+      <td th:text = "${customer.firstName}"></td>
+      <td th:text = "${customer.lastName}"></td>
+      <td th:text = "${customer.username}"></td>
+      <td th:text = "${customer.email}"></td>
+    </tr>
 
-  <!--CUSTOMER INFO-->
-
-  <tr th:each="customer : ${allcustomers}">
-    <td th:text = "${customer.customerId}"></td>
-    <td th:text = "${customer.username}"></td>
-    <td th:text = "${customer.email}"></td>
-    <td><a th:href = "@{'/customer/customerprofile/' + ${customer.customerId}}"><button type="submit" class="btn btn-success customerViewButton">View</button></a></td>
-    <td><a th:href = "@{'/customer/updatecustomer/' + ${customer.customerId}}"><button type="submit" class="btn btn-primary customerViewButton">Edit</button></a></td>
-    <td><a th:href = "@{'/admin/deletecustomer/' + ${customer.customerId}}"><button type="submit" class="btn btn-danger customerViewButton">Delete</button></a></td>
-  </tr>
-</table>
+  </table>
 </div>
-<!--LAZILY PADDING THE BOTTOM-->
-<br>
-<br>
-
-
-
-
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

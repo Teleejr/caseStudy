@@ -66,8 +66,7 @@ public class AdminController {
     /*READ*/
     //Show all employees
     @GetMapping("/allemployees")
-    public String showAllEmployees(Model model, Model model2) {
-        model2.addAttribute("alladmin", adminService.getAllAdmin());
+    public String showAllEmployees(Model model) {
         model.addAttribute("allemployees", employeeService.getAllEmployees());
         return "allEmployees";
     }
@@ -120,6 +119,14 @@ public class AdminController {
         employeeService.deleteEmployeeById(id);
         model.addAttribute("employee", employeeService.getAllEmployees());
         return "allEmployees";
+    }
+
+    @GetMapping("/deletecustomer/{customerId}")
+    public String showDeleteCustomer(Model model, @PathVariable("customerId") Long id) {
+
+        customerService.deleteCustomerById(id);
+        model.addAttribute("customer", customerService.getAllCustomers());
+        return "allCustomers";
     }
 
 }

@@ -68,9 +68,11 @@ public class EmployeeController {
         return "allCustomers";
     }
 
+
+
     //Show 1 Employee
     @GetMapping("/employeeprofile/{employeeId}")
-    public String showOneAdmin(@PathVariable("employeeId") Long id, Model model) {
+    public String showOneEmployee(@PathVariable("employeeId") Long id, Model model) {
         model.addAttribute("employee", employeeService.getByemployeeId(id));
         return "employeeProfile";
     }
