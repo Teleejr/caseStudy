@@ -65,10 +65,13 @@
     <span class = "cart-item cart-header cart-column">ITEM</span>
     <span class = "cart-type cart-header cart-column" >TYPE</span>
     <span class = "cart-price cart-header cart-column">PRICE</span>
-    <span class = "cart-quantity cart-header cart-column">QUANTITY</span>
 </div>
 
-<div class = "cart-items">
+<div th:each = "tab : ${ctab}" class = "cart-items">
+    <span th:text = "${name}" class = "cart-item cart-header cart-column">ITEM</span>
+    <span th:text = "${type}" class = "cart-type cart-header cart-column" >TYPE</span>
+    <span th:text = "${price}" class = "cart-price cart-header cart-column">PRICE</span>
+    <span class = "cart-quantity cart-header cart-column">QUANTITY</span>
 
 </div>
 

@@ -22,34 +22,33 @@ public class Tabs implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11) UNSIGNED", name = "id", nullable = false)
     Long tabId;
-    @NotNull @Column(columnDefinition = "DECIMAL (16,2)UNSIGNED" , name = "subtotal", nullable = false)
-    float subtotal;
-
-    final double TAXRATE = 0.07D;
-    @NotNull
-    double total;
+    @NotNull @Column(columnDefinition = "DECIMAL (16,2)UNSIGNED" , name = "price", nullable = false)
+    double price;
+    String name;
+    double abv;
+    String type;
     //Add a date column
 
-    @ToString.Exclude
-    @OneToOne(mappedBy = "customerTab", fetch = FetchType.LAZY)
-    Customer cTab;
+   /* @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "receipt")
+    Customer cId;*/
 
-    @ToString.Exclude
-    @OneToMany (mappedBy = "tabItems", fetch = FetchType.LAZY)
-    List<Items> tabItems;
 
-    public Tabs(List<Items> tabItems) {
-        this.tabItems = tabItems;
-    }
-
-    //Parses the javascript object to be transformed into a list
-    public List<Items> getTab() {
-        return tabItems;
-    }
-
-    //Sets the javascript object to be parsed into a list
-    public void setTab(List<Items> tabItems) {
-        this.tabItems = tabItems;
-
-    }
+//    List<Items> tabItems;
+//
+//    public Tabs(List<Items> tabItems) {
+//        this.tabItems = tabItems;
+//    }
+//
+//
+//    //Parses the javascript object to be transformed into a list
+//    public List<Items> getTab() {
+//        return tabItems;
+//    }
+//
+//    //Sets the javascript object to be parsed into a list
+//    public void setTab(List<Items> tabItems) {
+//        this.tabItems = tabItems;
+//
+//    }
 }

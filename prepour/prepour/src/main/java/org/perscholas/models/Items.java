@@ -30,10 +30,6 @@ public class Items implements Serializable {
     @NotNull @Column(columnDefinition = "INT(11) UNSIGNED", name = "quantity", nullable = false)
     int quantity;
 
-    @ToString.Exclude @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tab")
-    Tabs tabItems;
-
     public Items(String name, String type, float abv, float price, int quantity) {
         this.name = name;
         this.type = type;

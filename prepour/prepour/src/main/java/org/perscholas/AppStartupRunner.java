@@ -1,6 +1,7 @@
 package org.perscholas;
 
 import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.perscholas.dao.*;
 import org.perscholas.models.*;
 import org.perscholas.security.AppSecurityConfiguration;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@Log
+@Slf4j
 @Transactional
 public class AppStartupRunner implements CommandLineRunner{
 

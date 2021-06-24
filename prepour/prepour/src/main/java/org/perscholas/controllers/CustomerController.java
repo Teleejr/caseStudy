@@ -4,6 +4,7 @@ import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.models.Customer;
 import org.perscholas.models.Items;
+import org.perscholas.models.Tabs;
 import org.perscholas.services.CustomerService;
 import org.perscholas.services.ItemService;
 import org.perscholas.services.TabService;
@@ -64,21 +65,29 @@ public class CustomerController {
 
     }
 
+
     //Go to Customer tab page
-    @GetMapping("/customertab/1")
-    public String showTab(Model model1) {
+    @GetMapping("/customertab")
+    public String showTab(Model model1, Model model2, Model model3) {
 
         Items tab = new Items();
-        model1.addAttribute("items", tab);
+        model2.addAttribute("items", tab);
+        List<Tabs> check = tabService.findAllTabs();
+        model3.addAttribute("cTab", check);
         return "customerTab";
     }
 
     //Show the customer tab
-    @PostMapping("/customertab/{customerId}")
+    @PostMapping("/customertab")
     public String customerTab(@ModelAttribute("items") @Valid Items item, BindingResult result,
-                              Model model, @PathVariable("customerId") Long id) {
-
-        Customer c = customerService.getCustomerById(id);
+                              Model model, @RequestParam("name") String name, @RequestParam("abv") double abv, @RequestParam("price") double price) {
+        Tabs check = new Tabs();
+        log.warn("NIGGA WE MADE IT!!!!");
+        check.setName(name);
+        check.setAbv(abv);
+        check.setPrice(price);
+        log.warn(item.toString());
+        tabService.saveTab(check);
         List<Items> i = itemService.findAllItems();
         model.addAttribute("customerTab", i);
         itemService.saveItem(item);

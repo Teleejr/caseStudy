@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
+import java.util.List;
 
 @Data @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
@@ -36,9 +37,8 @@ public class Customer implements Serializable {
             "At least 1 special character")
     String password;
 
-    @ToString.Exclude @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "")
-    Tabs customerTab;
+//    @ToString.Exclude @OneToMany(mappedBy = "cId", fetch = FetchType.LAZY)
+//    List<Tabs> customerTab;
 
     public Customer(String firstName, String lastName,String username, String email, String phone, String password) {
         this.firstName = firstName;

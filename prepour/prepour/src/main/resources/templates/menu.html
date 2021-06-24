@@ -36,7 +36,7 @@
 
 <div class = "container">
   <!--Table for menu-->
-  <form th:action = "@{/customer/customertab/1}" method = "post" th:object = "${item}">
+
   <table class="table table-striped table-hover">
     <thead>
     <!--MENU HEADER-->
@@ -49,50 +49,53 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="items : ${tabitem}" class = "shop-item">
-      <td th:text = "${items.name}" class="shop-item-title">
-        <input type="hidden" name="name" class="form-control fs-4" id="name" th:field="*{name}"></td>
+    <form th:action = "@{/customer/customertab/}" method = "post">
+    <tr th:each="item : ${tabitem}" class = "shop-item">
+      <td th:text = "${item.name}" class="shop-item-title">
+        <input type="hidden" name="name" class="form-control fs-4" id="name" th:field="${item.name}">
+        <input type="hidden" name="id" class="form-control fs-4" id="id" th:field="${item.id}"></td>
 
-      <td th:text = "${items.type}" class = "shop-item-type">
-        <input type="hidden" name="type" class="form-control fs-4" id="type" th:field="*{type}"></td>
+      <td th:text = "${item.type}" class = "shop-item-type">
+        <input type="hidden" name="type" class="form-control fs-4" id="type" th:field="${item.type}"></td>
 
-      <td th:text = "${items.abv}">
-        <input type="hidden" name="abv" class="form-control fs-4" id="abv" th:field="*{abv}"></td>
+      <td th:text = "${item.abv}">
+        <input type="hidden" name="abv" class="form-control fs-4" id="abv" th:field="${item.abv}"></td>
 
-      <td th:text = "${items.price}" class="shop-item-price">
-        <input type="hidden" name="price" class="form-control fs-4" id="price" th:field="*{price}"></td>
+      <td th:text = "${item.price}" class="shop-item-price">
+        <input type="hidden" name="price" class="form-control fs-4" id="price" th:field="${item.price}"></td>
 
-      <td th:text = "${items.quantity}" class="shop-item-quantity">
-        <input type="hidden" name="quantity" class="form-control fs-4" id="quantity" th:field="*{quantity}"></td>
+      <td th:text = "${item.quantity}" class="shop-item-quantity">
+        <input type="hidden" name="quantity" class="form-control fs-4" id="quantity" th:field="${item.quantity}"></td>
 
-      <td><button type="button" class="btn btn-dark menuItemButton">Add</button></td>
+      <td><button type="submit" class="btn btn-dark menuItemButton">Add</button></td>
     </tr>
+    </form>
 
 
     </tbody>
   </table>
-  </table>
-  </form>
 
   <span class = "cart-header"><h1>Cart</h1></span>
+
   <div class = "cart-row">
     <span class = "cart-item cart-header cart-column">ITEM</span>
     <span class = "cart-type cart-header cart-column" >TYPE</span>
     <span class = "cart-price cart-header cart-column">PRICE</span>
-    <span class = "cart-quantity cart-header cart-column">QUANTITY</span>
   </div>
 
-  <div class = "cart-items">
-
-  </div>
-
+    <div th:each = "item : ${tab}" class = "cart-items">
+      <span th:text = "${name}" class = "cart-item cart-header cart-column">ITEM</span>
+      <span th:text = "${type}" class = "cart-type cart-header cart-column" >TYPE</span>
+      <span th:text = "${price}" class = "cart-price cart-header cart-column">PRICE</span>
+    </div>
 
   <div class="cart-total">
     <strong class="cart-total-title">Total</strong>
     <span class="cart-total-price">$0</span>
   </div>
 </div>
-  <button class="btn btn-success btn-purchase" type="button">PURCHASE</button>
+<form th:action = "@{'/customer/receipt/' + ${customerId}}" method = "post">
+  <button class="btn btn-success btn-purchase" type="button">PURCHASE</button></form>
 
   <script th:src= "@{/js/menu.js}"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

@@ -19,14 +19,6 @@ public class AppUserPrincipal implements UserDetails {
     private Customer customer;
     private List<AuthGroup> authGroups;
 
-
-//    public AppUserPrincipal(Admin admin, Employees employees, Customer customer, List<AuthGroup> authGroups) {
-//        this.admin = admin;
-//        this.employees = employees;
-//        this.customer = customer;
-//        this.authGroups = authGroups;
-//    }
-
     @Autowired
     public AppUserPrincipal(Admin admin, List<AuthGroup> authGroups) {
         this.admin = admin;
@@ -43,10 +35,7 @@ public class AppUserPrincipal implements UserDetails {
             grantedAuthorities.add(new SimpleGrantedAuthority(authGroup.getAAuthGroup()));
         });
 
-        //log.warn("Authorities triggered." + grantedAuthorities);
         return grantedAuthorities;
-
-        // return Collections.singleton(new SimpleGrantedAuthority("USER"));
     }
 
     @Override
