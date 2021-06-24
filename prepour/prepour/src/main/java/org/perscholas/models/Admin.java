@@ -40,7 +40,7 @@ public class Admin implements Serializable {
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "phone", nullable = false)
     String phone;
 
-    @NotBlank @Column(columnDefinition = "VARCHAR(150)", name = "password", nullable = false)
+    @NotBlank @Column(columnDefinition = "VARCHAR(250)", name = "password", nullable = false)
     @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", message = "Must contain at least 8 characters\n" +
             "At least 1 upper case letter\n" +
             "At least 1 lower case letter\n" +

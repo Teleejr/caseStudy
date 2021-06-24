@@ -3,7 +3,10 @@ package org.perscholas.security;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.dao.IAdminRepo;
 import org.perscholas.dao.IAuthRepo;
+import org.perscholas.dao.ICustomerRepo;
+import org.perscholas.dao.IEmployeeRepo;
 import org.perscholas.models.Admin;
+import org.perscholas.models.Employees;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -42,6 +45,9 @@ public class AppUserDetailsService implements UserDetailsService {
         List<AuthGroup> authGroups = authGroup.findByaUsername(s);
         log.warn("authority group service " + authGroups);
         return new AppUserPrincipal(adminOptional.get(), authGroups);
+
     }
+
+
 
 }

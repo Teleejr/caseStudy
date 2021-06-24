@@ -15,7 +15,7 @@ import java.util.*;
 public class AppUserPrincipal implements UserDetails {
 
     private Admin admin;
-    private Employees employees;
+    private Employees employee;
     private Customer customer;
     private List<AuthGroup> authGroups;
 
@@ -32,6 +32,7 @@ public class AppUserPrincipal implements UserDetails {
         this.admin = admin;
         this.authGroups = authGroups;
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

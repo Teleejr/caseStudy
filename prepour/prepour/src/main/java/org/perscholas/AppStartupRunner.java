@@ -43,18 +43,29 @@ public class AppStartupRunner implements CommandLineRunner{
 
 
         log.info("*************** START CUSTOMER SQL STATEMENTS ***************");
-        customerRepo.save(new Customer("T", "L", "tel10", "tel10@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
-        customerRepo.save(new Customer("G", "Unit", "gunit", "gunit@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
-        customerRepo.save(new Customer("Jahka", "J","jahka", "jahka@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
-        customerRepo.save(new Customer("Slim", "P","slimp", "slimp@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
+        customerRepo.save(new Customer("T", "L", "tel10", "tel10@gmail.com", "7314273", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
+        customerRepo.save(new Customer("G", "Unit", "gunit", "gunit@gmail.com", "7314273", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
+        customerRepo.save(new Customer("Jahka", "J","jahka", "jahka@gmail.com", "7314273", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
+        customerRepo.save(new Customer("Slim", "P","slimp", "slimp@gmail.com", "7314273", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
+        authRepo.save(new AuthGroup("tel10", "ROLE_CUSTOMER"));
+        authRepo.save(new AuthGroup("gunit", "ROLE_CUSTOMER"));
+        authRepo.save(new AuthGroup("jahka", "ROLE_CUSTOMER"));
+        authRepo.save(new AuthGroup("slimp", "ROLE_CUSTOMER"));
 
         log.info("*************** START EMPLOYEES SQL STATEMENTS ***************");
-        employeeRepo.save(new Employees("Leaia", "Leia","Leia10", "leia@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
+        employeeRepo.save(new Employees("Leaia", "Leia","Leia10", "leia@gmail.com", "7314273", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
+        employeeRepo.save(new Employees("Deshawn", "Harper","dHarp", "dHarp@gmail.com", "7314273", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
+        employeeRepo.save(new Employees("Tiana", "Reed","tReed10", "Treed@gmail.com", "7314273", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
+        authRepo.save(new AuthGroup("Leaia10", "ROLE_EMPLOYEE"));
+        authRepo.save(new AuthGroup("DHarp", "ROLE_EMPLOYEE"));
+        authRepo.save(new AuthGroup("tReed", "ROLE_EMPLOYEE"));
+
 
         log.info("*************** START ADMIN SQL STATEMENTS ***************");
         adminRepo.save(new Admin("Adam", "Ad", "Admin", "admin@gmail.com", "11111111", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
-        adminRepo.save(new Admin("Aaron", "Karl", "Akay", "akay@gmail.com", "7314273", "$ycv4ptdGcp@F0C"));
+        adminRepo.save(new Admin("Aaron", "Karl", "Akay", "akay@gmail.com", "7314273", AppSecurityConfiguration.getPasswordEncoder().encode("Password1$")));
         authRepo.save(new AuthGroup("Admin", "ROLE_ADMIN"));
+        authRepo.save(new AuthGroup("Akay", "ROLE_ADMIN"));
 
 
         log.info("*************** START ITEMS SQL STATEMENTS ***************");
@@ -69,13 +80,8 @@ public class AppStartupRunner implements CommandLineRunner{
         locationRepo.save(new Locations("South Side", "1234 Carson Ave", "7775555"));
         locationRepo.save(new Locations("Lawrenceville", "1234 Butler St", "7775556"));
 
-        log.info("*************** START TAB SQL STATEMENTS ***************");
-        Customer c1 = new Customer("Lee", "Lee", "lee", "lee0@gmail.com", "7314273", "$ycv4ptdGcp@F0C");
-        customerRepo.save(c1);
-        Items item1 = new Items("Apple Pie Milkshake Ale", 5.00f);
-        Items item2 = new Items("Coconut Cream Pie Ale", 6.00f);
-        Items item3 = new Items("Rice Barley Wine", 8.00f);
-        List<Items> tab;
+
+
 
 
 
