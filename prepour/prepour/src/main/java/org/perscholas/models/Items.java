@@ -32,7 +32,7 @@ public class Items implements Serializable {
 
     @ToString.Exclude @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tab")
-    Tabs tabItems;
+    Orders tabItems;
 
     public Items(String name, String type, float abv, float price, int quantity) {
         this.name = name;

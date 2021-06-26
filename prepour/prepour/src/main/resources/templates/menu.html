@@ -49,7 +49,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="items : ${tabitem}" class = "shop-item">
+    <tr th:each="items : ${orderitem}" class = "shop-item">
       <td th:text = "${items.name}" class="shop-item-title">
         <input type="hidden" name="name" class="form-control fs-4" id="name" th:field="*{name}"></td>
 

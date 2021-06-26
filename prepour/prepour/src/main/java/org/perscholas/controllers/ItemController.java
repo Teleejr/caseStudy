@@ -1,7 +1,6 @@
 package org.perscholas.controllers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.perscholas.models.Admin;
 import org.perscholas.models.Items;
 import org.perscholas.services.*;
 import org.springframework.stereotype.Controller;
@@ -21,16 +20,16 @@ public class ItemController {
     EmployeeService employeeService;
     CustomerService customerService;
     ItemService itemService;
-    TabService tabService;
+    OrdersService ordersService;
 
     //Add constructor
     public ItemController(AdminService adminService, EmployeeService employeeService, CustomerService customerService,
-                          ItemService itemService, TabService tabService) {
+                          ItemService itemService, OrdersService ordersService) {
         this.adminService = adminService;
         this.employeeService = employeeService;
         this.customerService = customerService;
         this.itemService = itemService;
-        this.tabService = tabService;
+        this.ordersService = ordersService;
     }
 
     @ModelAttribute("item")

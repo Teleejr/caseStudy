@@ -15,20 +15,20 @@ import java.util.List;
 
 @Data @NoArgsConstructor @AllArgsConstructor
 @Entity @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Tabs implements Serializable {
+public class Orders implements Serializable {
 
     private static final long serialVersionUID = 6399217378552505377L;
     //Fields
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11) UNSIGNED", name = "id", nullable = false)
     Long tabId;
-    @NotNull @Column(columnDefinition = "DECIMAL (16,2)UNSIGNED" , name = "subtotal", nullable = false)
+    /*@NotNull @Column(columnDefinition = "DECIMAL (16,2)UNSIGNED" , name = "subtotal", nullable = false)
     float subtotal;
 
     final double TAXRATE = 0.07D;
     @NotNull
     double total;
-    //Add a date column
+    *///Add a date column
 
     @ToString.Exclude
     @OneToOne(mappedBy = "customerTab", fetch = FetchType.LAZY)
@@ -38,7 +38,7 @@ public class Tabs implements Serializable {
     @OneToMany (mappedBy = "tabItems", fetch = FetchType.LAZY)
     List<Items> tabItems;
 
-    public Tabs(List<Items> tabItems) {
+    public Orders(List<Items> tabItems) {
         this.tabItems = tabItems;
     }
 

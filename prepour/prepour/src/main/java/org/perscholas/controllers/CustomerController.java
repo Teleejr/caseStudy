@@ -1,13 +1,11 @@
 package org.perscholas.controllers;
 
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.models.Customer;
-import org.perscholas.models.Employees;
 import org.perscholas.models.Items;
 import org.perscholas.services.CustomerService;
 import org.perscholas.services.ItemService;
-import org.perscholas.services.TabService;
+import org.perscholas.services.OrdersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,13 +22,13 @@ public class CustomerController {
 
     //Add Services
     CustomerService customerService;
-    TabService tabService;
+    OrdersService ordersService;
     ItemService itemService;
 
     //Add Constructor
-    public CustomerController(CustomerService customerService, TabService tabService, ItemService itemService) {
+    public CustomerController(CustomerService customerService, OrdersService ordersService, ItemService itemService) {
         this.customerService = customerService;
-        this.tabService = tabService;
+        this.ordersService = ordersService;
         this.itemService = itemService;
     }
 

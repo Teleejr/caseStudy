@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -21,14 +20,14 @@ public class AppStartupRunner implements CommandLineRunner{
     ICustomerRepo customerRepo;
     IItemsRepo itemsRepo;
     ILocationRepo locationRepo;
-    ITabsRepo tabsRepo;
+    IOrdersRepo tabsRepo;
     IEmployeeRepo employeeRepo;
     IAdminRepo adminRepo;
     IAuthRepo authRepo;
 
     @Autowired
     public AppStartupRunner(ICustomerRepo customerRepo, IItemsRepo itemsRepo, ILocationRepo locationRepo,
-                            ITabsRepo tabsRepo, IEmployeeRepo employeeRepo, IAdminRepo adminRepo, IAuthRepo authRepo) {
+                            IOrdersRepo tabsRepo, IEmployeeRepo employeeRepo, IAdminRepo adminRepo, IAuthRepo authRepo) {
         this.customerRepo = customerRepo;
         this.itemsRepo = itemsRepo;
         this.locationRepo = locationRepo;

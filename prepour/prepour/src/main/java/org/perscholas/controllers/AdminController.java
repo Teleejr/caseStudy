@@ -20,16 +20,16 @@ public class AdminController {
     EmployeeService employeeService;
     CustomerService customerService;
     ItemService itemService;
-    TabService tabService;
+    OrdersService ordersService;
 
     //Add constructor
     public AdminController(AdminService adminService, EmployeeService employeeService, CustomerService customerService,
-                           ItemService itemService, TabService tabService) {
+                           ItemService itemService, OrdersService ordersService) {
         this.adminService = adminService;
         this.employeeService = employeeService;
         this.customerService = customerService;
         this.itemService = itemService;
-        this.tabService = tabService;
+        this.ordersService = ordersService;
     }
 
     @ModelAttribute("admin")

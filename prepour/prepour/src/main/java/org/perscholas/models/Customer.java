@@ -38,7 +38,7 @@ public class Customer implements Serializable {
 
     @ToString.Exclude @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "")
-    Tabs customerTab;
+    Orders customerTab;
 
     public Customer(String firstName, String lastName,String username, String email, String phone, String password) {
         this.firstName = firstName;
