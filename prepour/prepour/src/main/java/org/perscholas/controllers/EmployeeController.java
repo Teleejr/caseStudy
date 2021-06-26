@@ -48,15 +48,15 @@ public class EmployeeController {
 
         //If the creation fails, return to the createEmployee page
         if(result.hasErrors()) {
-            log.info(String.valueOf(result.hasErrors()));
-            log.info(result.getAllErrors().toString());
+            log.warn(String.valueOf(result.hasErrors()));
+            log.warn(result.getAllErrors().toString());
             return "createEmployee";
         }
 
         else{ //If creation succeeds, go to the index page
-            System.out.println("Employee info: " + employee.getEmployeeId() + "  " + employee.getEmail());
+            log.warn("Employee info: " + employee.getEmployeeId() + "  " + employee.getEmail());
             Employees newEmp = employeeService.saveEmployee(employee);
-            return "index";
+            return "allEmployees";
         }
 
     }
