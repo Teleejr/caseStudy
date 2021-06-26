@@ -53,7 +53,7 @@ public class ItemController {
         if(result.hasErrors()) {
             log.info(String.valueOf(result.hasErrors()));
             log.info(result.getAllErrors().toString());
-            return "createItem";
+            return "allItems";
         }
 
         else{ //If creation succeeds, go to the index page

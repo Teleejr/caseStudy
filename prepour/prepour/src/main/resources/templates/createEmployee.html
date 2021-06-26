@@ -37,6 +37,12 @@
 <!--LOGIN FORM-->
 <div align="center">
   <form th:action="@{/employee/newemployee}" method="post" th:object="${employee}">
+    <label for="firstname">first name:</label><br>
+    <input type="text" id="firstname"  th:field="*{firstName}" required/><br>
+
+    <label for="lastname">last name:</label><br>
+    <input type="text" id="lastname"  th:field="*{lastName}" required/><br>
+
     <label for="username">username:</label><br>
     <input type="text" id="username"  th:field="*{username}" required/><br>
 
