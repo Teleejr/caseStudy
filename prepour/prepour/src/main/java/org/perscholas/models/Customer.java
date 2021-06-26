@@ -16,7 +16,7 @@ public class Customer implements Serializable {
     private static final long serialVersionUID = 2460832464129743819L;
     //Fields
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "INT(11) UNSIGNED", name = "customerId", nullable = false)
+    @Column(columnDefinition = "INT(11) UNSIGNED", name = "cId", nullable = false)
     Long customerId;
     @NotBlank @Column(columnDefinition = "VARCHAR(50)", name = "first", nullable = false)
     String firstName;
@@ -36,9 +36,8 @@ public class Customer implements Serializable {
             "At least 1 special character")
     String password;
 
-    @ToString.Exclude @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "")
-    Orders customerTab;
+    @ToString.Exclude @OneToOne(mappedBy = "oCustomer", fetch = FetchType.LAZY)
+    Orders cOrders;
 
     public Customer(String firstName, String lastName,String username, String email, String phone, String password) {
         this.firstName = firstName;

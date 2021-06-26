@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 @Entity @Component
@@ -30,9 +31,8 @@ public class Items implements Serializable {
     @NotNull @Column(columnDefinition = "INT(11) UNSIGNED", name = "quantity", nullable = false)
     int quantity;
 
-    @ToString.Exclude @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tab")
-    Orders tabItems;
+    @ToString.Exclude @OneToMany(mappedBy = "oItems", fetch = FetchType.LAZY)
+    List<Orders> iOrders;
 
     public Items(String name, String type, float abv, float price, int quantity) {
         this.name = name;

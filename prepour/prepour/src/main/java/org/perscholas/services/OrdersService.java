@@ -11,31 +11,31 @@ import java.util.List;
 public class OrdersService {
 
     //Use Tab repository
-    IOrdersRepo tabsRepo;
+    IOrdersRepo orderRepo;
 
     //Create a constructor
     @Autowired
-    public OrdersService(IOrdersRepo tabsRepo) {
-        this.tabsRepo = tabsRepo;
+    public OrdersService(IOrdersRepo orderRepo) {
+        this.orderRepo = orderRepo;
     }
 
     //Find all Tabs
-    public List<Orders> findAllTabs() {
-        return tabsRepo.findAll();
+    public List<Orders> findAllOrders() {
+        return orderRepo.findAll();
     }
 
     //Get Tabs by Id
-    public Orders getTabsById(Long id) {
-        return tabsRepo.getById(id);
+    public Orders getOrderssById(Long id) {
+        return orderRepo.getById(id);
     }
 
     //Delete a Tab
-    public void deleteTab(Long id) {
-        tabsRepo.deleteById(id);
+    public void deleteOrders(Long id) {
+        orderRepo.deleteById(id);
     }
 
     //Save Tab
-    public Orders saveTab(Orders tab) {
-        return tabsRepo.save(tab);
+    public Orders saveOrders(Orders orders) {
+        return orderRepo.save(orders);
     }
 }

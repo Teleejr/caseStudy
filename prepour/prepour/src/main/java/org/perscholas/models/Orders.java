@@ -20,36 +20,24 @@ public class Orders implements Serializable {
     private static final long serialVersionUID = 6399217378552505377L;
     //Fields
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "INT(11) UNSIGNED", name = "id", nullable = false)
-    Long tabId;
-    /*@NotNull @Column(columnDefinition = "DECIMAL (16,2)UNSIGNED" , name = "subtotal", nullable = false)
-    float subtotal;
+    Long oId;
 
-    final double TAXRATE = 0.07D;
-    @NotNull
-    double total;
-    *///Add a date column
+    //Id for the actual order being requested
+    Long oOrderId;
+
+    int oQuantity;
 
     @ToString.Exclude
-    @OneToOne(mappedBy = "customerTab", fetch = FetchType.LAZY)
-    Customer cTab;
+    @OneToOne(fetch = FetchType.LAZY) @JoinColumn
+    Customer oCustomer;
 
     @ToString.Exclude
-    @OneToMany (mappedBy = "tabItems", fetch = FetchType.LAZY)
-    List<Items> tabItems;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    Items oItems;
 
-    public Orders(List<Items> tabItems) {
-        this.tabItems = tabItems;
+    public Orders(Items oItems) {
+        this.oItems = oItems;
     }
 
-    //Parses the javascript object to be transformed into a list
-    public List<Items> getTab() {
-        return tabItems;
-    }
-
-    //Sets the javascript object to be parsed into a list
-    public void setTab(List<Items> tabItems) {
-        this.tabItems = tabItems;
-
-    }
 }
